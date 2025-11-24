@@ -185,16 +185,6 @@
             color: var(--dark);
         }
         
-        /* Mobile Menu */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
         /* Dark Mode Toggle */
         .dark-mode-toggle {
             position: absolute;
@@ -291,6 +281,51 @@
         .btn-primary {
             background-color: var(--primary);
             color: white;
+        }
+        
+        /* Quick Access Buttons */
+        .quick-access {
+            padding: 40px 0;
+            background-color: var(--light);
+        }
+        
+        .quick-access-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .quick-access-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--card-bg);
+            padding: 20px 15px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text-color);
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+            text-align: center;
+            min-height: 120px;
+        }
+        
+        .quick-access-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .quick-access-btn i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .quick-access-btn span {
+            font-weight: 600;
+            font-size: 0.95rem;
         }
         
         /* Top Banner */
@@ -891,38 +926,6 @@
                 text-align: center;
             }
             
-            .mobile-menu-btn {
-                display: block;
-                position: absolute;
-                right: 15px;
-                top: 10px;
-            }
-            
-            nav ul {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                background-color: var(--nav-bg);
-                position: absolute;
-                top: 100%;
-                left: 0;
-                z-index: 1000;
-                padding: 10px 0;
-            }
-            
-            nav ul.show {
-                display: flex;
-            }
-            
-            nav ul li {
-                margin: 5px 0;
-            }
-            
-            nav ul li a {
-                display: block;
-                padding: 10px 15px;
-            }
-            
             .dark-mode-toggle {
                 position: relative;
                 right: auto;
@@ -970,6 +973,24 @@
             header.shrink .contact-info p {
                 font-size: 0.7rem;
             }
+            
+            .quick-access-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 10px;
+            }
+            
+            .quick-access-btn {
+                padding: 15px 10px;
+                min-height: 100px;
+            }
+            
+            .quick-access-btn i {
+                font-size: 1.5rem;
+            }
+            
+            .quick-access-btn span {
+                font-size: 0.85rem;
+            }
         }
         
         @media (max-width: 480px) {
@@ -1003,6 +1024,10 @@
                 padding: 12px 25px;
                 font-size: 1.1rem;
             }
+            
+            .quick-access-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
     </style>
 </head>
@@ -1032,7 +1057,7 @@
         <div class="container">
             <div class="header-top">
                 <div class="logo">
-                    <img src="https://scontent.fdac202-1.fna.fbcdn.net/v/t39.30808-1/465864294_3887613201505139_5546741385621062236_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=104&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeG-_FubSCZjlZd2N90itQXc9BsHlc6WOBr0GweVzpY4GhOY0cQweW0Cg-otzLN6RroF14XH2856JL2lUP1clUEG&_nc_ohc=2ikKefmicAcQ7kNvwEF4XkB&_nc_oc=AdnV_KcRwBJvv-PPEtkxP9-MWHcdwbuQkO77txODRSwCI0Do-6qvtFx0GF2cTLfCWME&_nc_zt=24&_nc_ht=scontent.fdac202-1.fna&_nc_gid=KND5FPoL2k106EtZdFQ8Ww&oh=00_Afh2Pj153MisYar7WxJ86DOYuEkKbgq6nh7zwQW4x_mv7Q&oe=69222D2A" alt="দারুল হিকমাহ মাদ্রাসা লোগো">
+                    <img src="https://cdn.pixabay.com/photo/2017/01/31/23/42/animal-2028258_1280.png" alt="দারুল হিকমাহ মাদ্রাসা লোগো">
                     <div class="logo-text">
                         <h1>দারুল হিকমাহ মডেল মাদ্রাসা</h1>
                         <p>ইসলামী ব্যাংকের বিপরীত পার্শ্বে, হালুয়াঘাট রোড, ফুলপুর, ময়মনসিংহ</p>
@@ -1050,9 +1075,6 @@
     <!-- Navigation -->
     <nav>
         <div class="container">
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fas fa-bars"></i>
-            </button>
             <ul id="navMenu">
                 <li><a href="#" class="nav-link active" data-page="home">হোম</a></li>
                 <li><a href="#" class="nav-link" data-page="about">আমাদের সম্পর্কে</a></li>
@@ -1086,6 +1108,49 @@
             </div>
         </section>
         
+        <!-- Quick Access Section -->
+        <section class="quick-access">
+            <div class="container">
+                <div class="section-title">
+                    <h2>দ্রুত অ্যাক্সেস</h2>
+                </div>
+                <div class="quick-access-grid">
+                    <a href="#" class="quick-access-btn nav-link" data-page="about">
+                        <i class="fas fa-info-circle"></i>
+                        <span>আমাদের সম্পর্কে</span>
+                    </a>
+                    <a href="#" class="quick-access-btn nav-link" data-page="departments">
+                        <i class="fas fa-school"></i>
+                        <span>বিভাগসমূহ</span>
+                    </a>
+                    <a href="#" class="quick-access-btn nav-link" data-page="admission">
+                        <i class="fas fa-user-graduate"></i>
+                        <span>ভর্তি তথ্য</span>
+                    </a>
+                    <a href="#" class="quick-access-btn nav-link" data-page="fee">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <span>ফি কাঠামো</span>
+                    </a>
+                    <a href="#" class="quick-access-btn nav-link" data-page="facilities">
+                        <i class="fas fa-star"></i>
+                        <span>সুবিধাসমূহ</span>
+                    </a>
+                    <a href="#" class="quick-access-btn nav-link" data-page="gallery">
+                        <i class="fas fa-images"></i>
+                        <span>গ্যালারি</span>
+                    </a>
+                    <a href="#" class="quick-access-btn nav-link" data-page="contact">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>যোগাযোগ</span>
+                    </a>
+                    <a href="tel:01970517566" class="quick-access-btn">
+                        <i class="fas fa-phone"></i>
+                        <span>কল করুন</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
         <!-- About Preview Section -->
         <section class="about">
             <div class="container">
@@ -1099,7 +1164,7 @@
                         <a href="#" class="nav-link btn" data-page="about">আরও জানুন</a>
                     </div>
                     <div class="about-image">
-                        <img src="https://scontent.fdac202-1.fna.fbcdn.net/v/t39.30808-1/465864294_3887613201505139_5546741385621062236_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=104&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeG-_FubSCZjlZd2N90itQXc9BsHlc6WOBr0GweVzpY4GhOY0cQweW0Cg-otzLN6RroF14XH2856JL2lUP1clUEG&_nc_ohc=2ikKefmicAcQ7kNvwEF4XkB&_nc_oc=AdnV_KcRwBJvv-PPEtkxP9-MWHcdwbuQkO77txODRSwCI0Do-6qvtFx0GF2cTLfCWME&_nc_zt=24&_nc_ht=scontent.fdac202-1.fna&_nc_gid=KND5FPoL2k106EtZdFQ8Ww&oh=00_Afh2Pj153MisYar7WxJ86DOYuEkKbgq6nh7zwQW4x_mv7Q&oe=69222D2A" alt="মাদ্রাসার ছবি">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="মাদ্রাসার ছবি">
                     </div>
                 </div>
             </div>
@@ -1170,7 +1235,7 @@
                         </ul>
                     </div>
                     <div class="about-image">
-                        <img src="https://scontent.fdac202-1.fna.fbcdn.net/v/t39.30808-1/465864294_3887613201505139_5546741385621062236_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=104&ccb=1-7&_nc_sid=2d3e12&_nc_eui2=AeG-_FubSCZjlZd2N90itQXc9BsHlc6WOBr0GweVzpY4GhOY0cQweW0Cg-otzLN6RroF14XH2856JL2lUP1clUEG&_nc_ohc=2ikKefmicAcQ7kNvwEF4XkB&_nc_oc=AdnV_KcRwBJvv-PPEtkxP9-MWHcdwbuQkO77txODRSwCI0Do-6qvtFx0GF2cTLfCWME&_nc_zt=24&_nc_ht=scontent.fdac202-1.fna&_nc_gid=KND5FPoL2k106EtZdFQ8Ww&oh=00_Afh2Pj153MisYar7WxJ86DOYuEkKbgq6nh7zwQW4x_mv7Q&oe=69222D2A" alt="মাদ্রাসার ছবি">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="মাদ্রাসার ছবি">
                     </div>
                 </div>
             </div>
@@ -1383,7 +1448,7 @@
                                 </tr>
                                 <tr>
                                     <td>নাযেরা</td>
-                                    <td>৪,০００/-</td>
+                                    <td>৪,００/-</td>
                                     <td>২,০০০/-</td>
                                     <td>৩,৫০০/-</td>
                                 </tr>
@@ -1585,25 +1650,22 @@
                 </div>
                 <div class="gallery-grid">
                     <div class="gallery-item">
-                        <img src="https://scontent.fdac202-1.fna.fbcdn.net/v/t39.30808-6/574333909_122164764218603730_6107408478536141622_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeESG00_uZksnHF-w53lgTbT5O795iZQGK_k7v3mJlAYr_IEKPoVBMLjRm-oB_AJlN7Ql4WaYFbGFofytL_b6VVS&_nc_ohc=TEW3dhMNe8MQ7kNvwE3-V-z&_nc_oc=Admams3U0PSQrEoUt8jxwSYWFsvpRcfxtnb8Ncu7Q5Jmkpu9HuypFMjsO2ghJ-y6T4Q&_nc_zt=23&_nc_ht=scontent.fdac202-1.fna&_nc_gid=JDV_cSNr3PchCZyLpdac3w&oh=00_AfiXaaIbgJalinj7D5QQbHCEIL-av_9a8lLyoVb_SrpN6w&oe=69223F0D" alt="মাদ্রাসা ভবন">
+                        <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="মাদ্রাসা ভবন">
                     </div>
                     <div class="gallery-item">
-                        <img src="https://scontent.fdac202-1.fna.fbcdn.net/v/t39.30808-6/576852352_122164765586603730_1600122270960701439_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHKN5zzbFXJqv0xlTElQR2dBjmRYxmWM2gGOZFjGZYzaO_vKmJcLEMCzes90bdpukDwRzEtNwAT9P2JGNafSbc7&_nc_ohc=p3n56-iuCa4Q7kNvwEUvPpJ&_nc_oc=Adl51RyMSslleKzNh2xs6hWVPold_6uls3urzSQ3vJ4YnPPzc7JoY_CceRCUQ55MWnQ&_nc_zt=23&_nc_ht=scontent.fdac202-1.fna&_nc_gid=esNGcowoYzs0ypMXGkiq3Q&oh=00_AfhTWEBmlMReCmmMtijH9vUrw1qBc6gLGO1-bxWTryh_rg&oe=69225C49" alt="শিক্ষার্থীরা ক্লাসে">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="শিক্ষার্থীরা ক্লাসে">
                     </div>
                     <div class="gallery-item">
-                        <img src="https://scontent.fdac202-1.fna.fbcdn.net/v/t39.30808-6/529248905_122152522172603730_1843360172138035529_n.jpg?stp=dst-jpg_s590x590_tt6&_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHrJGP0BjW1Mx6-fGDsii91dNBAwOt1FYt00EDA63UVi-8ZwobogjIOT9LfoiHnd6kX5TJhXnbntVJ1uqeGM4r7&_nc_ohc=A08h899RH6UQ7kNvwFVur5Q&_nc_oc=AdmCSJu2O7sPsprEfnNdZzcM8ol2EZgv3FwRxAHsZJLOrq6VQRXnp_RtraaDKT8VLxo&_nc_zt=23&_nc_ht=scontent.fdac202-1.fna&_nc_gid=PaYPjGRw9Omz39YPQHb2dQ&oh=00_AficoEePmy7FLSHhdy6-pWSX-eP-NB3J37c9xpZOXSV1BA&oe=69222F92" alt="কুরআন শিক্ষা">
+                        <img src="https://images.unsplash.com/photo-1562813733-b31f71025d54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="কুরআন শিক্ষা">
                     </div>
                     <div class="gallery-item">
-                        <img src="https://scontent.fdac202-1.fna.fbcdn.net/v/t39.30808-6/529741209_122152522238603730_5012083553119785628_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFq3zTu3qrY4fur2lyVzVyVE0NrOvzsXVcTQ2s6_OxdV6EVtzp2sagV2W7-ycfcrRhNnZcTxudctB2WXLq1ej_b&_nc_ohc=N-Dc1Orb0NQQ7kNvwF3HP8u&_nc_oc=AdmnP0ZRsj8CYiioM20MU_1XdLuI0rTjx-D26eoICg5W-3cdgXv5X2Od1_flPfeb_AE&_nc_zt=23&_nc_ht=scontent.fdac202-1.fna&_nc_gid=wsHFHEXXQr-lAfEHiyCEYw&oh=00_Afjh3yD9CHRi1pYGh4gI3-YcLR-OEbLsOS5NE6-FYkIx6Q&oe=692246C1" alt="লাইব্রেরি">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1422&q=80" alt="লাইব্রেরি">
                     </div>
                     <div class="gallery-item">
-                        <img src="https://scontent.fdac202-1.fna.fbcdn.net/v/t39.30808-6/530195226_122152522274603730_2972532153330638362_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeF4eU2UctjcllBVGNUBpgLHQLVL9RgThLxAtUv1GBOEvAyK6nOxycvFkR0BbbOVD4tca4-0UCybh84_Nx_q15pd&_nc_ohc=nuqo5EZP_CAQ7kNvwGd7XWA&_nc_oc=AdkNMk9x6QmCUPvLVEhVhkOekFzpDlRjyfdBBPYY9XgdZOcPUz3tuHzbfqs3yTF_BF0&_nc_zt=23&_nc_ht=scontent.fdac202-1.fna&_nc_gid=W2ioXeC0YwOnaRee8DqXDg&oh=00_AfiKPqC9iPtDfo8BuNKsAfP_466Ha1_JVUpl4lEUhRiSTw&oe=69223062" alt="ল্যাবরেটরি">
+                        <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="ল্যাবরেটরি">
                     </div>
                     <div class="gallery-item">
-                        <img src="https://scontent.fdac202-1.fna.fbcdn.net/v/t39.30808-6/531140700_122152522286603730_5238070215609404256_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHQfzjg5rb2mVbeNwW8A2p1IJbfeqiDj3Uglt96qIOPdX4hKLIDl_na1BSqcHTxWi7kZg1vst-mtemrA4-prppK&_nc_ohc=yhP8LJ-Hkr4Q7kNvwGKfV9U&_nc_oc=AdmonwaqVV6hKAM9daPNez90RzkkUkgbKKSTz6wJKJahhqG5z8EFzUTTxST9od5MpkA&_nc_zt=23&_nc_ht=scontent.fdac202-1.fna&_nc_gid=v2O8uTfmxMjljDHc2IJbLQ&oh=00_AfgDY3pywcSrm3TcUegPe4qWzOinCgDS1SBGhj96Djts3A&oe=69225A63" alt="খেলার মাঠ">
-                    </div>
-					<div class="gallery-item">
-                        <img src="https://scontent.fdac202-1.fna.fbcdn.net/v/t39.30808-6/530294899_122152522340603730_4521880554189225808_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGRi8fvpEVabDPlEA7b2T9Q4ZX07Mp08PHhlfTsynTw8bwoQR-Q7DsmZGte0txh8MAxyYA1NMpmJKm81VdaddXU&_nc_ohc=bwJhYrlArBEQ7kNvwHlrtl6&_nc_oc=AdnllTdWliigiahVXbYOqsUwoyawzQ9U8tKcHWJgrG5UsgcQOOn2RIOidOVpi5nLbwg&_nc_zt=23&_nc_ht=scontent.fdac202-1.fna&_nc_gid=e2AmJbxPRGjJSGi1v6JjWA&oh=00_AfhNlnI3pvpla6njDIaYuw6HRDVry1QSOk3-ZsCekxJjLQ&oe=69225F81" alt="খেলার মাঠ">
+                        <img src="https://images.unsplash.com/photo-1541336032412-2048a678540d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="খেলার মাঠ">
                     </div>
                 </div>
             </div>
@@ -1816,14 +1878,6 @@
             }
         });
         
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navMenu = document.getElementById('navMenu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('show');
-        });
-        
         // Page Navigation
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function(e) {
@@ -1839,9 +1893,6 @@
                     page.classList.remove('active');
                 });
                 document.getElementById(targetPage).classList.add('active');
-                
-                // Close mobile menu after navigation
-                navMenu.classList.remove('show');
                 
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
