@@ -1,31 +1,202 @@
+/* ============================================
+   দারুল হিকমাহ মডেল মাদ্রাসা - মেইন স্টাইলশীট
+   Version: 1.0
+   Author: Darul Hikmah IT Team
+   ============================================ */
+
+/* ============================================
+   ১. ভেরিয়েবল ও রুট স্টাইল
+   ============================================ */
 :root {
+    /* প্রাইমারি কালার প্যালেট */
     --primary-color: #1a237e;
+    --primary-dark: #0d1458;
+    --primary-light: #534bae;
+    
+    /* সেকেন্ডারি কালার প্যালেট */
     --secondary-color: #0d47a1;
+    --secondary-dark: #002171;
+    --secondary-light: #5472d3;
+    
+    /* অ্যাকসেন্ট কালার */
     --accent-color: #ffc107;
-    --light-color: #f5f5f5;
-    --dark-color: #333;
+    --accent-dark: #c79100;
+    --accent-light: #fff350;
+    
+    /* সাফল্য ও তথ্য কালার */
     --success-color: #2e7d32;
+    --info-color: #0288d1;
+    --warning-color: #f57c00;
+    --danger-color: #d32f2f;
+    
+    /* নিরপেক্ষ কালার */
+    --light-color: #f5f5f5;
+    --light-gray: #e0e0e0;
+    --medium-gray: #9e9e9e;
+    --dark-gray: #616161;
+    --dark-color: #212121;
+    
+    /* শেড ও ছায়া */
+    --shadow-light: 0 2px 5px rgba(0,0,0,0.1);
+    --shadow-medium: 0 4px 10px rgba(0,0,0,0.15);
+    --shadow-heavy: 0 8px 20px rgba(0,0,0,0.2);
+    
+    /* বর্ডার রেডিয়াস */
+    --border-radius-sm: 5px;
+    --border-radius-md: 10px;
+    --border-radius-lg: 15px;
+    --border-radius-xl: 20px;
+    
+    /* ট্রানজিশন */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* ফন্ট সাইজ */
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-xxl: 1.5rem;
+    --font-size-xxxl: 2rem;
 }
 
+/* ============================================
+   ২. রিসেট ও বেসিক স্টাইল
+   ============================================ */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Hind Siliguri', 'SolaimanLipi', sans-serif;
-    color: #333;
-    background-color: #f8f9fa;
-    line-height: 1.6;
+html {
+    scroll-behavior: smooth;
 }
 
-/* Header Top */
+body {
+    font-family: 'Hind Siliguri', 'SolaimanLipi', 'Siyam Rupali', sans-serif;
+    color: var(--dark-color);
+    background-color: #f8f9fa;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-normal);
+}
+
+ul, ol {
+    list-style-position: inside;
+    margin-bottom: 1rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ============================================
+   ৩. ইউটিলিটি ক্লাস
+   ============================================ */
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.text-secondary {
+    color: var(--secondary-color) !important;
+}
+
+.text-accent {
+    color: var(--accent-color) !important;
+}
+
+.text-success {
+    color: var(--success-color) !important;
+}
+
+.text-danger {
+    color: var(--danger-color) !important;
+}
+
+.text-warning {
+    color: var(--warning-color) !important;
+}
+
+.text-info {
+    color: var(--info-color) !important;
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+.bg-secondary {
+    background-color: var(--secondary-color) !important;
+}
+
+.bg-accent {
+    background-color: var(--accent-color) !important;
+}
+
+.bg-light {
+    background-color: var(--light-color) !important;
+}
+
+.rounded-sm {
+    border-radius: var(--border-radius-sm);
+}
+
+.rounded-md {
+    border-radius: var(--border-radius-md);
+}
+
+.rounded-lg {
+    border-radius: var(--border-radius-lg);
+}
+
+.rounded-xl {
+    border-radius: var(--border-radius-xl);
+}
+
+.shadow-light {
+    box-shadow: var(--shadow-light);
+}
+
+.shadow-medium {
+    box-shadow: var(--shadow-medium);
+}
+
+.shadow-heavy {
+    box-shadow: var(--shadow-heavy);
+}
+
+.transition {
+    transition: var(--transition-normal);
+}
+
+/* ============================================
+   ৪. হেডার টপ সেকশন
+   ============================================ */
 .header-top {
-    background: linear-gradient(90deg, #0F3F55, #1a237e);
+    background: linear-gradient(90deg, var(--primary-dark), var(--primary-color));
     color: white;
     padding: 5px 0;
-    font-size: 13px;
+    font-size: var(--font-size-xs);
     border-bottom: 2px solid var(--accent-color);
 }
 
@@ -39,40 +210,48 @@ body {
 }
 
 .madrasah-info {
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(255, 255, 255, 0.1);
     padding: 3px 10px;
     border-radius: 3px;
     margin-right: 10px;
     font-weight: 600;
-    font-size: 12px;
+    font-size: var(--font-size-xs);
 }
 
 .datetime-info {
     font-weight: 500;
-    font-size: 12px;
+    font-size: var(--font-size-xs);
 }
 
 .online-admission-btn {
     background-color: var(--accent-color);
-    color: #333 !important;
+    color: var(--dark-color) !important;
     padding: 3px 10px;
-    border-radius: 3px;
+    border-radius: var(--border-radius-sm);
     font-weight: 600;
-    font-size: 12px;
-    transition: all 0.3s;
+    font-size: var(--font-size-xs);
+    transition: var(--transition-normal);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .online-admission-btn:hover {
-    background-color: #ffb300;
+    background-color: var(--accent-dark);
     color: #000 !important;
     transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
 }
 
-/* Main Header */
+/* ============================================
+   ৫. মেইন হেডার
+   ============================================ */
 .main-header {
     background-color: white;
     padding: 10px 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow-light);
+    position: relative;
+    z-index: 100;
 }
 
 .logo-section {
@@ -87,24 +266,32 @@ body {
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid var(--primary-color);
+    transition: var(--transition-normal);
+}
+
+.logo-img:hover {
+    transform: rotate(10deg);
 }
 
 .logo-text h1 {
-    font-size: 1.4rem;
+    font-size: var(--font-size-xxl);
     color: var(--primary-color);
     font-weight: 700;
     margin-bottom: 3px;
+    line-height: 1.2;
 }
 
 .logo-text p {
-    font-size: 0.9rem;
-    color: #666;
+    font-size: var(--font-size-sm);
+    color: var(--dark-gray);
     margin-bottom: 0;
 }
 
-/* Notice Section */
+/* ============================================
+   ৬. নোটিশ সেকশন
+   ============================================ */
 .notice-section {
-    background-color: #f8f9fa;
+    background-color: var(--light-color);
     border-top: 2px solid var(--accent-color);
     border-bottom: 2px solid var(--accent-color);
     padding: 8px 0;
@@ -117,7 +304,8 @@ body {
     padding: 5px 10px;
     font-weight: 700;
     white-space: nowrap;
-    font-size: 13px;
+    font-size: var(--font-size-sm);
+    border-radius: var(--border-radius-sm);
 }
 
 .notice-marquee {
@@ -130,6 +318,9 @@ body {
     position: absolute;
     white-space: nowrap;
     animation: marquee 30s linear infinite;
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 @keyframes marquee {
@@ -138,17 +329,18 @@ body {
 }
 
 .notice-item {
-    display: inline-block;
-    margin-right: 30px;
-    color: #d32f2f;
+    display: inline-flex;
+    align-items: center;
+    color: var(--danger-color);
     font-weight: 500;
-    font-size: 13px;
+    font-size: var(--font-size-sm);
 }
 
 .notice-item a {
-    color: #d32f2f;
+    color: var(--danger-color);
     text-decoration: none;
-    font-size: 13px;
+    font-size: var(--font-size-sm);
+    transition: var(--transition-fast);
 }
 
 .notice-item a:hover {
@@ -156,7 +348,13 @@ body {
     text-decoration: underline;
 }
 
-/* Navigation - Sticky Menu */
+.notice-separator {
+    color: var(--medium-gray);
+}
+
+/* ============================================
+   ৭. নেভিগেশন মেনু
+   ============================================ */
 .main-nav {
     background-color: var(--primary-color);
     position: sticky;
@@ -165,40 +363,61 @@ body {
     right: 0;
     z-index: 1000;
     padding: 5px 0;
+    box-shadow: var(--shadow-medium);
 }
 
 .navbar-nav .nav-link {
     color: white !important;
     font-weight: 500;
     padding: 8px 15px !important;
-    font-size: 14px;
-    transition: all 0.3s;
+    font-size: var(--font-size-sm);
+    transition: var(--transition-normal);
+    border-radius: var(--border-radius-sm);
+    margin: 0 2px;
 }
 
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active {
     background-color: var(--accent-color);
-    color: #333 !important;
+    color: var(--dark-color) !important;
+    transform: translateY(-2px);
 }
 
 .dropdown-menu {
     background-color: var(--secondary-color);
     border: none;
-    border-radius: 0;
+    border-radius: var(--border-radius-sm);
+    box-shadow: var(--shadow-medium);
+    padding: 5px 0;
+    margin-top: 5px !important;
 }
 
 .dropdown-item {
     color: white !important;
-    padding: 6px 15px;
-    font-size: 13px;
+    padding: 8px 15px;
+    font-size: var(--font-size-sm);
+    transition: var(--transition-fast);
 }
 
-.dropdown-item:hover {
+.dropdown-item:hover,
+.dropdown-item.active {
     background-color: var(--accent-color) !important;
-    color: #333 !important;
+    color: var(--dark-color) !important;
+    padding-left: 20px;
 }
 
-/* Main Content */
+.navbar-toggler {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 5px 10px;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 2px var(--accent-color);
+}
+
+/* ============================================
+   ৮. মেইন কন্টেন্ট
+   ============================================ */
 .main-content {
     min-height: 500px;
     padding: 30px 0;
@@ -211,23 +430,64 @@ body {
     padding-bottom: 10px;
     margin-bottom: 30px;
     font-weight: 700;
+    position: relative;
 }
 
-/* Slider */
+.page-title::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100px;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+/* ============================================
+   ৯. হিরো স্লাইডার
+   ============================================ */
 .slider-container {
     margin-bottom: 30px;
-    border-radius: 10px;
+    border-radius: var(--border-radius-lg);
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow-heavy);
+    position: relative;
 }
 
 .slider-img {
     height: 400px;
     object-fit: cover;
     width: 100%;
+    transition: transform 0.5s ease;
 }
 
-/* Quick Links */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: var(--transition-normal);
+}
+
+.slider-container:hover .carousel-control-prev,
+.slider-container:hover .carousel-control-next {
+    opacity: 1;
+}
+
+.carousel-indicators button {
+    width: 12px !important;
+    height: 12px !important;
+    border-radius: 50%;
+    margin: 0 5px !important;
+}
+
+/* ============================================
+   ১০. দ্রুত অ্যাক্সেস কার্ড
+   ============================================ */
 .quick-links {
     background-color: var(--light-color);
     padding: 30px 0;
@@ -235,386 +495,634 @@ body {
 
 .quick-link-card {
     background: white;
-    border-radius: 10px;
-    padding: 20px;
+    border-radius: var(--border-radius-lg);
+    padding: 25px 20px;
     text-align: center;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
+    box-shadow: var(--shadow-light);
+    transition: var(--transition-normal);
     height: 100%;
     display: block;
     text-decoration: none;
     color: inherit;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.quick-link-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
 }
 
 .quick-link-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-heavy);
+    border-color: var(--primary-color);
+}
+
+.quick-link-card:hover::before {
+    transform: scaleX(1);
 }
 
 .quick-link-icon {
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: var(--primary-color);
     margin-bottom: 15px;
+    transition: var(--transition-normal);
 }
 
-/* Departments */
+.quick-link-card:hover .quick-link-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.quick-link-card h5 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    transition: var(--transition-normal);
+}
+
+.quick-link-card:hover h5 {
+    color: var(--secondary-color);
+}
+
+.quick-link-card p {
+    color: var(--dark-gray);
+    font-size: var(--font-size-sm);
+    margin-bottom: 0;
+}
+
+/* ============================================
+   ১১. বিভাগ কার্ড
+   ============================================ */
 .department-card {
     background: white;
-    border-radius: 10px;
-    padding: 20px;
+    border-radius: var(--border-radius-lg);
+    padding: 25px 20px;
     text-align: center;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    transition: all 0.3s;
+    box-shadow: var(--shadow-light);
+    transition: var(--transition-normal);
     height: 100%;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.department-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid var(--primary-color);
+    border-radius: var(--border-radius-lg);
+    opacity: 0;
+    transition: var(--transition-normal);
 }
 
 .department-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-heavy);
+}
+
+.department-card:hover::before {
+    opacity: 1;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
 }
 
 .department-icon {
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: var(--primary-color);
     margin-bottom: 15px;
+    transition: var(--transition-normal);
 }
 
-/* Facilities */
+.department-card:hover .department-icon {
+    transform: scale(1.1);
+    color: var(--secondary-color);
+}
+
+.department-card h5 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.department-card p {
+    color: var(--dark-gray);
+    font-size: var(--font-size-sm);
+    margin-bottom: 0;
+}
+
+/* ============================================
+   ১২. সুবিধা কার্ড
+   ============================================ */
 .facility-card {
     background: white;
-    border-radius: 10px;
+    border-radius: var(--border-radius-lg);
     padding: 25px;
     text-align: center;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    transition: all 0.3s;
+    box-shadow: var(--shadow-light);
+    transition: var(--transition-normal);
     height: 100%;
     border-top: 4px solid var(--primary-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.facility-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
 }
 
 .facility-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-heavy);
+}
+
+.facility-card:hover::after {
+    transform: scaleX(1);
 }
 
 .facility-icon {
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: var(--primary-color);
     margin-bottom: 15px;
+    transition: var(--transition-normal);
+}
+
+.facility-card:hover .facility-icon {
+    transform: rotate(15deg);
+    color: var(--secondary-color);
 }
 
 .facility-card h6 {
     color: var(--primary-color);
     margin-bottom: 10px;
-    font-size: 1.1rem;
+    font-size: var(--font-size-lg);
 }
 
 .facility-card p {
-    color: #666;
-    font-size: 0.9rem;
+    color: var(--dark-gray);
+    font-size: var(--font-size-sm);
     margin-bottom: 0;
 }
 
-/* About Page */
-.principal-img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border: 5px solid var(--primary-color);
-}
-
-.teacher-img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 3px solid var(--primary-color);
-}
-
-.teacher-card {
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    transition: all 0.3s;
-}
-
-.teacher-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-/* Fee Page */
-.fee-table-container {
-    background: white;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+/* ============================================
+   ১৩. বিভাগ বিবরণ কার্ড
+   ============================================ */
+.department-details {
+    background-color: var(--light-color);
+    border-radius: var(--border-radius-lg);
+    padding: 30px;
     margin-bottom: 30px;
+    box-shadow: var(--shadow-light);
+    border-left: 5px solid var(--primary-color);
 }
 
-.fee-table-container h3 {
-    color: var(--primary-color);
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--accent-color);
-}
-
-.fee-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
-}
-
-.fee-table th {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 12px 15px;
-    text-align: left;
-    border: 1px solid #ddd;
-}
-
-.fee-table td {
-    padding: 10px 15px;
-    border: 1px solid #ddd;
-}
-
-.fee-table tr:nth-child(even) {
-    background-color: #f8f9fa;
-}
-
-/* Food Menu */
-.food-menu-container {
-    background: white;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    overflow-x: auto;
-}
-
-.food-menu {
-    width: 100%;
-    min-width: 800px;
-    border-collapse: collapse;
-    margin-top: 15px;
-}
-
-.food-menu th {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 12px 15px;
-    text-align: center;
-    border: 1px solid #ddd;
-    white-space: nowrap;
-}
-
-.food-menu td {
-    padding: 10px 15px;
-    border: 1px solid #ddd;
-    text-align: center;
-}
-
-.food-menu tr:nth-child(even) {
-    background-color: #f8f9fa;
-}
-
-/* Gallery */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+.department-header {
+    display: flex;
+    align-items: center;
     gap: 15px;
-    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.department-icon-lg {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    transition: var(--transition-normal);
+}
+
+.department-header:hover .department-icon-lg {
+    transform: rotate(15deg);
+}
+
+/* ============================================
+   ১৪. টেবিল স্টাইল
+   ============================================ */
+.table th {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 15px;
+}
+
+.table td {
+    padding: 10px 15px;
+    vertical-align: middle;
+}
+
+.table-bordered th,
+.table-bordered td {
+    border: 1px solid var(--light-gray);
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(26, 35, 126, 0.05);
+}
+
+.table-responsive {
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+}
+
+/* ============================================
+   ১৫. গ্যালারি স্টাইল
+   ============================================ */
+.gallery-container {
+    position: relative;
 }
 
 .gallery-item {
-    border-radius: 10px;
+    border-radius: var(--border-radius-lg);
     overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-light);
+    transition: var(--transition-normal);
+    position: relative;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-heavy);
 }
 
 .gallery-img {
     width: 100%;
-    height: 200px;
+    height: 250px;
     object-fit: cover;
-    transition: transform 0.3s;
+    transition: transform 0.5s ease;
 }
 
-.gallery-img:hover {
+.gallery-item:hover .gallery-img {
     transform: scale(1.05);
 }
 
-/* Contact Form */
-.contact-form {
-    background: white;
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+.gallery-item .card-body {
+    padding: 15px;
 }
 
-.form-control {
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 5px;
+.gallery-item .card-title {
+    color: var(--primary-color);
+    font-size: var(--font-size-md);
+    margin-bottom: 8px;
 }
 
-.form-control:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 0.2rem rgba(26, 35, 126, 0.25);
+.gallery-item .card-text {
+    color: var(--dark-gray);
+    font-size: var(--font-size-sm);
+    margin-bottom: 0;
 }
 
-/* Footer */
-.footer {
+/* গ্যালারি ফিল্টার বাটন */
+[data-filter] {
+    transition: var(--transition-normal);
+    padding: 8px 20px;
+    border: 2px solid var(--primary-color);
+    background: transparent;
+    color: var(--primary-color);
+}
+
+[data-filter].active {
     background-color: var(--primary-color);
+    color: white;
+}
+
+[data-filter]:hover:not(.active) {
+    background-color: rgba(26, 35, 126, 0.1);
+}
+
+/* ============================================
+   ১৬. ফর্ম স্টাইল
+   ============================================ */
+.form-control,
+.form-select {
+    padding: 10px 15px;
+    border: 1px solid var(--light-gray);
+    border-radius: var(--border-radius-sm);
+    font-family: 'Hind Siliguri', sans-serif;
+    transition: var(--transition-normal);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(26, 35, 126, 0.1);
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--dark-color);
+    margin-bottom: 5px;
+}
+
+textarea.form-control {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* ============================================
+   ১৭. বাটন স্টাইল
+   ============================================ */
+.btn {
+    padding: 10px 25px;
+    border-radius: var(--border-radius-sm);
+    font-weight: 600;
+    font-family: 'Hind Siliguri', sans-serif;
+    transition: var(--transition-normal);
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border: 2px solid var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: white;
+    border: 2px solid var(--secondary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-dark);
+    border-color: var(--secondary-dark);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+}
+
+.btn-success {
+    background-color: var(--success-color);
+    color: white;
+    border: 2px solid var(--success-color);
+}
+
+.btn-success:hover {
+    background-color: #1b5e20;
+    border-color: #1b5e20;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+}
+
+.btn-outline-primary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-medium);
+}
+
+.btn-lg {
+    padding: 12px 30px;
+    font-size: var(--font-size-lg);
+}
+
+/* ============================================
+   ১৮. ফুটার
+   ============================================ */
+.footer {
+    background: linear-gradient(180deg, var(--primary-color), var(--primary-dark));
     color: white;
     padding: 50px 0 20px;
     margin-top: 50px;
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--accent-color), var(--warning-color));
 }
 
 .footer h4 {
     color: var(--accent-color);
     margin-bottom: 20px;
-    font-size: 1.3rem;
+    font-size: var(--font-size-xl);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--accent-color);
 }
 
 .footer-links a {
-    color: #ddd;
+    color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     display: block;
-    margin-bottom: 10px;
-    transition: color 0.3s;
+    margin-bottom: 12px;
+    transition: var(--transition-fast);
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-links a:hover {
     color: var(--accent-color);
+    padding-left: 10px;
+    border-bottom-color: var(--accent-color);
 }
 
-.social-icons a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 50%;
-    color: white;
-    margin-right: 10px;
-    transition: all 0.3s;
+.footer p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 15px;
 }
 
-.social-icons a:hover {
-    background-color: var(--accent-color);
-    color: #333;
-    transform: translateY(-3px);
+.footer i {
+    color: var(--accent-color);
+    width: 20px;
 }
 
 .copyright {
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 20px;
     margin-top: 30px;
     text-align: center;
-    color: #aaa;
-    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: var(--font-size-sm);
 }
 
-/* Floating Buttons */
+/* ============================================
+   ১৯. ফ্লোটিং বাটন
+   ============================================ */
 .floating-buttons {
     position: fixed;
     bottom: 30px;
     right: 30px;
     z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .floating-btn {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background-color: var(--success-color);
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: var(--shadow-heavy);
     text-decoration: none;
-    transition: all 0.3s;
+    transition: var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.floating-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
 }
 
 .floating-btn:hover {
-    transform: scale(1.1);
-    color: white;
+    transform: scale(1.1) rotate(5deg);
+}
+
+.floating-btn:hover::before {
+    transform: translateY(0);
 }
 
 .floating-btn.call {
-    background-color: #25d366;
+    background: linear-gradient(135deg, #25d366, #128C7E);
 }
 
 .floating-btn.whatsapp {
-    background-color: #25d366;
+    background: linear-gradient(135deg, #25d366, #128C7E);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .logo-section {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .logo-img {
-        width: 50px;
-        height: 50px;
-    }
-    
-    .logo-text h1 {
-        font-size: 1.2rem;
-    }
-    
-    .slider-img {
-        height: 250px;
-    }
-    
-    .notice-label {
-        padding: 4px 8px;
-        font-size: 11px;
-    }
-    
-    .header-top .col-md-4 {
-        text-align: center !important;
-        margin-bottom: 3px;
-    }
-    
-    .navbar-nav .nav-link {
-        padding: 6px 12px !important;
-        font-size: 13px;
-    }
-    
-    .facility-card {
-        padding: 15px;
-    }
-    
-    .facility-icon {
-        font-size: 2rem;
-    }
+.floating-btn.email {
+    background: linear-gradient(135deg, #ea4335, #d14836);
 }
 
-@media (max-width: 576px) {
-    .navbar-nav .nav-link {
-        padding: 5px 10px !important;
-        font-size: 12px;
-    }
-    
-    .slider-img {
-        height: 200px;
-    }
-    
-    .page-title {
-        font-size: 1.5rem;
-    }
-    
-    .floating-buttons {
-        bottom: 20px;
-        right: 20px;
-    }
-    
-    .floating-btn {
-        width: 50px;
-        height: 50px;
-    }
+.floating-btn i {
+    font-size: 1.5rem;
+    position: relative;
+    z-index: 1;
 }
+
+.floating-btn-tooltip {
+    position: absolute;
+    right: 70px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--dark-color);
+    color: white;
+    padding: 5px 10px;
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-xs);
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-normal);
+}
+
+.floating-btn:hover .floating-btn-tooltip {
+    opacity: 1;
+    visibility: visible;
+    right: 75px;
+}
+
+/* ============================================
+   ২০. অ্যালার্ট ও ব্যাজ
+   ============================================ */
+.alert {
+    border-radius: var(--border-radius-md);
+    border: none;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+}
+
+.alert-info {
+    background-color: rgba(2, 136, 209, 0.1);
+    border-left: 4px solid var(--info-color);
+    color: var(--info-color);
+}
+
+.alert-success {
+    background-color: rgba(46, 125, 50, 0.1);
+    border-left: 4px solid var(--success-color);
+    color: var(--success-color);
+}
+
+.alert-warning {
+    background-color: rgba(245, 124, 0, 0.1);
+    border-left: 4px solid var(--warning-color);
+    color: var(--warning-color);
+}
+
+.alert-danger {
+    background-color: rgba(211, 47, 47, 0.1);
+    border-left: 4px solid var(--danger-color);
+    color: var(--danger-color);
+}
+
+.badge {
+    padding: 5px 10px;
+    border-radius: var(--border-radius-sm);
+    font-weight: 600;
+    font-size: var(--font-size-xs);
+}
+
+.badge.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+.badge.bg-success {
+    background
