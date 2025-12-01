@@ -75,11 +75,12 @@
         
         .main-nav {
             background-color: var(--primary-color);
-            position: fixed;
-            top: 145px; /* All headers height */
+            position: sticky;
+            top: 0; /* All headers height */
             left: 0;
             right: 0;
-            z-index: 1000;
+            z-index: 999;
+            background-color: #1a237e;
         }
         
         .header-top a {
@@ -1462,5 +1463,6 @@
     </script>
 </body>
 </html>
+
 
 
