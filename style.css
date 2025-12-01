@@ -1125,4 +1125,282 @@ textarea.form-control {
 }
 
 .badge.bg-success {
-    background
+    background-color: var(--success-color) !important;
+}
+
+.badge.bg-info {
+    background-color: var(--info-color) !important;
+}
+
+.badge.bg-warning {
+    background-color: var(--warning-color) !important;
+}
+
+/* ============================================
+   ২১. কার্ড স্টাইল
+   ============================================ */
+.card {
+    border: none;
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-light);
+    transition: var(--transition-normal);
+    overflow: hidden;
+}
+
+.card:hover {
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-5px);
+}
+
+.card-header {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    font-weight: 700;
+}
+
+.card.border-primary {
+    border: 2px solid var(--primary-color);
+}
+
+.card.border-success {
+    border: 2px solid var(--success-color);
+}
+
+.card.border-warning {
+    border: 2px solid var(--warning-color);
+}
+
+.card.border-info {
+    border: 2px solid var(--info-color);
+}
+
+.card.border-danger {
+    border: 2px solid var(--danger-color);
+}
+
+/* ============================================
+   ২২. ম্যাপ স্টাইল
+   ============================================ */
+#map {
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    border: 2px solid var(--light-gray);
+}
+
+/* ============================================
+   ২৩. রেসপন্সিভ ডিজাইন
+   ============================================ */
+@media (max-width: 1200px) {
+    .logo-text h1 {
+        font-size: var(--font-size-xl);
+    }
+}
+
+@media (max-width: 992px) {
+    .slider-img {
+        height: 350px;
+    }
+    
+    .quick-link-card,
+    .department-card,
+    .facility-card {
+        margin-bottom: 20px;
+    }
+    
+    .floating-buttons {
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .logo-img {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .logo-text h1 {
+        font-size: var(--font-size-lg);
+    }
+    
+    .slider-img {
+        height: 250px;
+    }
+    
+    .notice-label {
+        padding: 4px 8px;
+        font-size: var(--font-size-xs);
+        width: 100%;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+    
+    .header-top .col-md-4 {
+        text-align: center !important;
+        margin-bottom: 5px;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 6px 12px !important;
+        font-size: var(--font-size-sm);
+    }
+    
+    .floating-buttons {
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .floating-btn {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .floating-btn i {
+        font-size: 1.25rem;
+    }
+    
+    .page-title {
+        font-size: var(--font-size-xl);
+    }
+    
+    .department-header {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-nav .nav-link {
+        padding: 5px 10px !important;
+        font-size: var(--font-size-sm);
+    }
+    
+    .slider-img {
+        height: 200px;
+    }
+    
+    .page-title {
+        font-size: var(--font-size-lg);
+    }
+    
+    .btn {
+        padding: 8px 20px;
+        font-size: var(--font-size-sm);
+    }
+    
+    .footer {
+        padding: 30px 0 15px;
+    }
+    
+    .footer h4 {
+        font-size: var(--font-size-lg);
+    }
+    
+    .floating-buttons {
+        bottom: 10px;
+        right: 10px;
+    }
+    
+    .floating-btn {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .floating-btn i {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .logo-text h1 {
+        font-size: var(--font-size-md);
+    }
+    
+    .logo-text p {
+        font-size: var(--font-size-xs);
+    }
+    
+    .slider-img {
+        height: 150px;
+    }
+    
+    .page-title {
+        font-size: var(--font-size-md);
+    }
+}
+
+/* ============================================
+   ২৪. অ্যানিমেশন ও এফেক্ট
+   ============================================ */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.delay-1 {
+    animation-delay: 0.1s;
+}
+
+.delay-2 {
+    animation-delay: 0.2s;
+}
+
+.delay-3 {
+    animation-delay: 0.3s;
+}
+
+/* লোডিং এফেক্ট */
+.loading-spinner {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(26, 35, 126, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* হোভার জুম এফেক্ট */
+.hover-zoom {
+    transition: transform 0.3s ease;
+}
+
+.hover-zoom:hover {
+    transform: scale(1.05);
+}
+
+/* শাইন এফেক্ট */
+.shine-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.shine-effect::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255,
