@@ -1412,4 +1412,83 @@
                 
                 // In a real application, you would send the data to a server here
                 // Example using fetch API:
-                /
+                /*
+                fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        name: name,
+                        phone: phone,
+                        email: document.getElementById('email').value,
+                        subject: subject,
+                        message: message,
+                        newsletter: document.getElementById('newsletter').checked
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message);
+                    contactForm.reset();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('বার্তা পাঠানো ব্যর্থ হয়েছে। দয়া করে পরে আবার চেষ্টা করুন।');
+                });
+                */
+            });
+        }
+        
+        // Fade in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = function() {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+        
+        window.addEventListener('scroll', fadeInOnScroll);
+        fadeInOnScroll(); // Initial check
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                // Only handle anchor links, not page links
+                if (href.startsWith('#') && href.length > 1) {
+                    e.preventDefault();
+                    
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Initialize Google Maps link (placeholder - in real implementation, you'd embed Google Maps)
+        const mapButton = document.querySelector('.map-placeholder .btn');
+        if (mapButton) {
+            mapButton.addEventListener('click', function(e) {
+                // This would normally open Google Maps
+                // For now, we'll just prevent the default and show a message
+                e.preventDefault();
+                alert('Google Maps-এ আমাদের অবস্থান দেখতে লিঙ্কে ক্লিক করুন।');
+            });
+        }
+    </script>
+</body>
+</html>
