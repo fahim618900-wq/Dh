@@ -48,7 +48,7 @@
             color: var(--text-color);
             background-color: var(--light-gray);
             line-height: 1.6;
-            padding-top: 160px; /* Adjusted for fixed header */
+            padding-top: 60px; /* Navigation bar height */
         }
         
         a {
@@ -77,8 +77,8 @@
             position: absolute;
             left: 0;
             bottom: 0;
-            width: 40px;
-            height: 2px;
+            width: 80px;
+            height: 3px;
             background-color: var(--secondary-color);
         }
         
@@ -91,13 +91,8 @@
         .header-top {
             background-color: var(--primary-color);
             color: var(--white);
-            padding: 5px 0;
+            padding: 10px 0;
             font-size: 0.9rem;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 888;
         }
         
         .madrasah-info {
@@ -106,7 +101,7 @@
         }
         
         .madrasah-info i {
-            margin-right: 3px;
+            margin-right: 5px;
         }
         
         .datetime-info {
@@ -118,7 +113,7 @@
         .online-admission-btn {
             background-color: var(--accent-color);
             color: var(--white);
-            padding: 4px 7px;
+            padding: 8px 15px;
             border-radius: var(--border-radius-sm);
             font-weight: 600;
             transition: var(--transition-normal);
@@ -136,11 +131,6 @@
             background-color: var(--white);
             padding: 20px 0;
             box-shadow: var(--shadow-light);
-            position: fixed;
-            top: 20px;
-            left: 0;
-            right: 0;
-            z-index: 999;
         }
         
         .logo-section {
@@ -174,17 +164,12 @@
         .notice-section {
             background-color: var(--secondary-color);
             color: var(--white);
-            padding: 8px 0;
-            position: fixed;
-            top: 80px;
-            left: 0;
-            right: 0;
-            z-index: 999;
+            padding: 10px 0;
         }
         
         .notice-label {
             background-color: var(--primary-color);
-            padding: 4px 7px;
+            padding: 8px 15px;
             border-radius: var(--border-radius-sm);
             font-weight: 600;
             text-align: center;
@@ -203,7 +188,7 @@
         }
         
         .notice-item {
-            margin: 0 7px;
+            margin: 0 15px;
         }
         
         .notice-item a {
@@ -230,7 +215,7 @@
             background-color: var(--primary-dark);
             padding: 0;
             position: fixed;
-            top: 160px;
+            top: 0;
             left: 0;
             right: 0;
             z-index: 1027;
@@ -425,20 +410,20 @@
         .section-anchor {
             display: block;
             position: relative;
-            top: -100px;
+            top: -80px;
             visibility: hidden;
         }
         
         /* Table of Contents - Sticky */
         .toc {
             position: sticky;
-            top: 200px;
+            top: 100px;
             background: white;
             border-radius: var(--border-radius-lg);
             padding: 20px;
             box-shadow: var(--shadow-light);
             margin-bottom: 30px;
-            max-height: calc(100vh - 220px);
+            max-height: calc(100vh - 120px);
             overflow-y: auto;
         }
         
@@ -645,15 +630,7 @@
         /* Responsive Styles */
         @media (max-width: 768px) {
             body {
-                padding-top: 200px;
-            }
-            
-            .main-nav {
-                top: 190px;
-            }
-            
-            .notice-section {
-                top: 160px;
+                padding-top: 60px;
             }
             
             .header-top .col-md-4 {
@@ -720,15 +697,7 @@
         
         @media (max-width: 576px) {
             body {
-                padding-top: 220px;
-            }
-            
-            .main-nav {
-                top: 210px;
-            }
-            
-            .notice-section {
-                top: 180px;
+                padding-top: 60px;
             }
             
             .logo-text h1 {
@@ -1558,7 +1527,7 @@
                 let currentSection = '';
                 
                 sections.forEach(section => {
-                    const sectionTop = section.offsetTop - 150;
+                    const sectionTop = section.offsetTop - 100;
                     const sectionHeight = section.clientHeight;
                     if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
                         currentSection = section.id;
@@ -1585,7 +1554,7 @@
                     
                     if (targetElement) {
                         window.scrollTo({
-                            top: targetElement.offsetTop - 120,
+                            top: targetElement.offsetTop - 80,
                             behavior: 'smooth'
                         });
                     }
