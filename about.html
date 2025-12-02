@@ -11,10 +11,289 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- মেইন স্টাইলশীট -->
-    <link rel="stylesheet" href="style.css">
     
     <style>
+        /* Root Variables */
+        :root {
+            --primary-color: #1a237e;
+            --primary-light: #534bae;
+            --primary-dark: #000051;
+            --secondary-color: #00bcd4;
+            --secondary-light: #62efff;
+            --secondary-dark: #008ba3;
+            --accent-color: #ff9800;
+            --light-gray: #f5f5f5;
+            --medium-gray: #e0e0e0;
+            --dark-gray: #424242;
+            --text-color: #212121;
+            --white: #ffffff;
+            --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 6px 12px rgba(0, 0, 0, 0.15);
+            --shadow-heavy: 0 10px 20px rgba(0, 0, 0, 0.2);
+            --border-radius-sm: 5px;
+            --border-radius-md: 10px;
+            --border-radius-lg: 15px;
+            --transition-normal: all 0.3s ease;
+        }
+        
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            color: var(--text-color);
+            background-color: var(--light-gray);
+            line-height: 1.6;
+            padding-top: 160px; /* Adjusted for fixed header */
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        a:hover {
+            color: var(--primary-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .section-title.text-center::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Header Top */
+        .header-top {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 0;
+            font-size: 0.9rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1030;
+        }
+        
+        .madrasah-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .madrasah-info i {
+            margin-right: 5px;
+        }
+        
+        .datetime-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .online-admission-btn {
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 8px 15px;
+            border-radius: var(--border-radius-sm);
+            font-weight: 600;
+            transition: var(--transition-normal);
+            display: inline-block;
+        }
+        
+        .online-admission-btn:hover {
+            background-color: #f57c00;
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+        
+        /* Main Header */
+        .main-header {
+            background-color: var(--white);
+            padding: 20px 0;
+            box-shadow: var(--shadow-light);
+            position: fixed;
+            top: 40px;
+            left: 0;
+            right: 0;
+            z-index: 1029;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+        }
+        
+        .logo-text h1 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .logo-text p {
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+            margin-bottom: 0;
+        }
+        
+        /* Notice Section */
+        .notice-section {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 10px 0;
+            position: fixed;
+            top: 130px;
+            left: 0;
+            right: 0;
+            z-index: 1028;
+        }
+        
+        .notice-label {
+            background-color: var(--primary-color);
+            padding: 8px 15px;
+            border-radius: var(--border-radius-sm);
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .notice-marquee {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .notice-content {
+            display: flex;
+            align-items: center;
+            animation: marquee 30s linear infinite;
+            white-space: nowrap;
+        }
+        
+        .notice-item {
+            margin: 0 15px;
+        }
+        
+        .notice-item a {
+            color: var(--white);
+        }
+        
+        .notice-item a:hover {
+            color: var(--light-gray);
+            text-decoration: underline;
+        }
+        
+        .notice-separator {
+            margin: 0 10px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        /* Navigation - Sticky */
+        .main-nav {
+            background-color: var(--primary-dark);
+            padding: 0;
+            position: fixed;
+            top: 160px;
+            left: 0;
+            right: 0;
+            z-index: 1027;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-nav .nav-link {
+            color: var(--white) !important;
+            padding: 15px 20px !important;
+            transition: var(--transition-normal);
+        }
+        
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            background-color: var(--primary-color);
+        }
+        
+        .dropdown-menu {
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: var(--border-radius-md);
+        }
+        
+        .dropdown-item {
+            color: var(--white);
+            padding: 10px 15px;
+            transition: var(--transition-normal);
+        }
+        
+        .dropdown-item:hover {
+            background-color: var(--primary-light);
+            color: var(--white);
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 40px 0;
+            min-height: 70vh;
+        }
+        
+        .page-title {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .page-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .page-title.text-center::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
         /* About page specific styles */
         .principal-message {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
@@ -22,6 +301,7 @@
             padding: 30px;
             position: relative;
             overflow: hidden;
+            margin-bottom: 40px;
         }
         
         .principal-message::before {
@@ -82,6 +362,7 @@
             color: white;
             border-radius: var(--border-radius-lg);
             padding: 30px;
+            margin-bottom: 40px;
         }
         
         .teacher-card {
@@ -90,6 +371,7 @@
             overflow: hidden;
             transition: var(--transition-normal);
             height: 100%;
+            box-shadow: var(--shadow-light);
         }
         
         .teacher-card:hover {
@@ -105,6 +387,7 @@
         
         .teacher-info {
             padding: 20px;
+            background-color: var(--white);
         }
         
         .teacher-qualification {
@@ -136,24 +419,27 @@
         
         .about-section {
             margin-bottom: 50px;
+            padding-top: 30px;
         }
         
         .section-anchor {
             display: block;
             position: relative;
-            top: -80px;
+            top: -100px;
             visibility: hidden;
         }
         
-        /* Table of Contents */
+        /* Table of Contents - Sticky */
         .toc {
             position: sticky;
-            top: 100px;
+            top: 200px;
             background: white;
             border-radius: var(--border-radius-lg);
             padding: 20px;
             box-shadow: var(--shadow-light);
             margin-bottom: 30px;
+            max-height: calc(100vh - 220px);
+            overflow-y: auto;
         }
         
         .toc-title {
@@ -173,23 +459,296 @@
         }
         
         .toc-list a {
-            color: var(--dark-color);
+            color: var(--dark-gray);
             text-decoration: none;
             display: block;
-            padding: 5px 10px;
+            padding: 8px 12px;
             border-radius: var(--border-radius-sm);
-            transition: var(--transition-fast);
+            transition: var(--transition-normal);
+            border-left: 3px solid transparent;
         }
         
         .toc-list a:hover {
             background-color: rgba(26, 35, 126, 0.1);
             color: var(--primary-color);
+            border-left-color: var(--primary-color);
             padding-left: 15px;
         }
         
         .toc-list a.active {
             background-color: var(--primary-color);
             color: white;
+            border-left-color: var(--accent-color);
+        }
+        
+        /* Cards */
+        .card {
+            border: none;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-light);
+            transition: var(--transition-normal);
+            margin-bottom: 20px;
+        }
+        
+        .card:hover {
+            box-shadow: var(--shadow-medium);
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 40px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .footer h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links a {
+            color: var(--medium-gray);
+            display: block;
+            margin-bottom: 10px;
+            transition: var(--transition-normal);
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            color: var(--white);
+            transition: var(--transition-normal);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: var(--medium-gray);
+            text-align: center;
+        }
+        
+        /* Floating Buttons */
+        .floating-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+        
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow-medium);
+            transition: var(--transition-normal);
+            position: relative;
+        }
+        
+        .floating-btn.call {
+            background-color: var(--primary-color);
+        }
+        
+        .floating-btn.whatsapp {
+            background-color: #25D366;
+        }
+        
+        .floating-btn.email {
+            background-color: var(--accent-color);
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .floating-btn-tooltip {
+            position: absolute;
+            right: 70px;
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 5px 10px;
+            border-radius: var(--border-radius-sm);
+            white-space: nowrap;
+            opacity: 0;
+            transition: var(--transition-normal);
+            pointer-events: none;
+        }
+        
+        .floating-btn:hover .floating-btn-tooltip {
+            opacity: 1;
+            right: 75px;
+        }
+        
+        /* Back to Top Button */
+        #backToTop {
+            position: fixed;
+            bottom: 150px;
+            right: 30px;
+            z-index: 1000;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow-medium);
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+        }
+        
+        #backToTop:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        /* Fade-in Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 200px;
+            }
+            
+            .main-nav {
+                top: 190px;
+            }
+            
+            .notice-section {
+                top: 160px;
+            }
+            
+            .header-top .col-md-4 {
+                text-align: center;
+                margin-bottom: 10px;
+            }
+            
+            .datetime-info {
+                justify-content: center;
+                margin: 10px 0;
+            }
+            
+            .logo-section {
+                justify-content: center;
+                margin-bottom: 15px;
+            }
+            
+            .logo-img {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .main-header .col-md-9 {
+                text-align: center;
+            }
+            
+            .notice-label {
+                margin-bottom: 10px;
+            }
+            
+            .principal-photo {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .teacher-photo {
+                height: 200px;
+            }
+            
+            .toc {
+                position: relative;
+                top: 0;
+                margin-bottom: 30px;
+            }
+            
+            .floating-buttons {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .floating-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            
+            #backToTop {
+                bottom: 120px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            body {
+                padding-top: 220px;
+            }
+            
+            .main-nav {
+                top: 210px;
+            }
+            
+            .notice-section {
+                top: 180px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1rem;
+            }
+            
+            .section-title, .page-title {
+                font-size: 1.5rem;
+            }
+            
+            .counter-number {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .toc {
+                position: relative;
+                top: 0;
+            }
         }
     </style>
 </head>
@@ -224,7 +783,7 @@
             <div class="row align-items-center">
                 <div class="col-md-3">
                     <div class="logo-section">
-                        <img src="https://via.placeholder.com/60x60/1a237e/ffffff?text=DH" alt="দারুল হিকমাহ মডেল মাদ্রাসার লোগো" class="logo-img">
+                        <img src="https://scontent.fdac202-1.fna.fbcdn.net/v/t39.30808-6/465864294_3887613201505139_5546741385621062236_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=t1pQGu9xWeIQ7kNvwHCc3KG&_nc_oc=Adk92EfvodvRs5AeqXJ9afcg7LbO6y8sf_n-WbLhextwSbFl_OJA77s9_w6zEpQG9C0&_nc_zt=23&_nc_ht=scontent.fdac202-1.fna&_nc_gid=Zv-Rkya9G5ngj8qlsoqNfA&oh=00_Afnb2JEwb4Ad6Kvq-I1ruGz9V4hf6vO9-T8O5NvY1NE3MQ&oe=6934786C" alt="দারুল হিকমাহ মডেল মাদ্রাসার লোগো" class="logo-img">
                         <div class="logo-text">
                             <h1>দারুল হিকমাহ মডেল মাদ্রাসা</h1>
                             <p>ফুলপুর, ময়মনসিংহ</p>
@@ -251,11 +810,17 @@
                 <div class="col-md-10 col-lg-11">
                     <div class="notice-marquee">
                         <div class="notice-content">
-                            <span class="notice-item"><a href="admission.html"><i class="fas fa-exclamation-circle me-1"></i>ভর্তি চলছে ২০২৪ শিক্ষাবর্ষের জন্য</a></span>
+                            <span class="notice-item"><a href="admission.html">🎓 ভর্তি চলছে ২০২৬ শিক্ষাবর্ষের জন্য</a></span>
                             <span class="notice-separator">||</span>
-                            <span class="notice-item"><a href="#"><i class="fas fa-calendar-alt me-1"></i>বার্ষিক সাংস্কৃতিক অনুষ্ঠান ২৫ ডিসেম্বর</a></span>
+                            <span class="notice-item"><a href="about.html">🏫 পরিচিতি পৃষ্ঠায় বিস্তারিত তথ্য</a></span>
                             <span class="notice-separator">||</span>
-                            <span class="notice-item"><a href="#"><i class="fas fa-graduation-cap me-1"></i>হিফয বিভাগে নতুন ব্যাচ শুরু ১ জানুয়ারি</a></span>
+                            <span class="notice-item"><a href="gallery.html">📸 নতুন ছবি আপলোড করা হয়েছে</a></span>
+                            <span class="notice-separator">||</span>
+                            <span class="notice-item"><a href="admission.html">🎓 ভর্তি চলছে ২০২৬ শিক্ষাবর্ষের জন্য</a></span>
+                            <span class="notice-separator">||</span>
+                            <span class="notice-item"><a href="about.html">🏫 পরিচিতি পৃষ্ঠায় বিস্তারিত তথ্য</a></span>
+                            <span class="notice-separator">||</span>
+                            <span class="notice-item"><a href="gallery.html">📸 নতুন ছবি আপলোড করা হয়েছে</a></span>
                         </div>
                     </div>
                 </div>
@@ -263,7 +828,7 @@
         </div>
     </section>
     
-    <!-- Navigation -->
+    <!-- Navigation - Sticky Menu -->
     <nav class="navbar navbar-expand-lg navbar-dark main-nav">
         <div class="container">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -314,6 +879,10 @@
                         <a class="nav-link" href="contact.html"><i class="fas fa-phone-alt me-1"></i> যোগাযোগ</a>
                     </li>
                 </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="খুঁজুন..." aria-label="Search">
+                    <button class="btn btn-outline-light" type="submit"><i class="fas fa-search"></i></button>
+                </form>
             </div>
         </div>
     </nav>
@@ -322,10 +891,10 @@
     <main class="main-content">
         <div class="container">
             <div class="row">
-                <!-- Table of Contents -->
+                <!-- Table of Contents - Sticky -->
                 <div class="col-lg-3">
                     <div class="toc">
-                        <h5 class="toc-title">সূচিপত্র</h5>
+                        <h5 class="toc-title"><i class="fas fa-list me-2"></i>সূচিপত্র</h5>
                         <ul class="toc-list">
                             <li><a href="#overview" class="active">এক নজরে মাদ্রাসা</a></li>
                             <li><a href="#principal">প্রধান শিক্ষকের বাণী</a></li>
@@ -341,7 +910,7 @@
                 <!-- Main Content -->
                 <div class="col-lg-9">
                     <!-- Overview Section -->
-                    <div class="about-section" id="overview">
+                    <div class="about-section fade-in" id="overview">
                         <span class="section-anchor" id="overview-anchor"></span>
                         <h2 class="page-title">এক নজরে দারুল হিকমাহ মডেল মাদ্রাসা</h2>
                         
@@ -353,7 +922,7 @@
                             <div class="col-md-6">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h5 class="card-title text-primary">প্রতিষ্ঠানের তথ্য</h5>
+                                        <h5 class="card-title text-primary"><i class="fas fa-info-circle me-2"></i>প্রতিষ্ঠানের তথ্য</h5>
                                         <table class="table table-borderless">
                                             <tr>
                                                 <th width="40%">প্রতিষ্ঠানের নাম:</th>
@@ -390,21 +959,21 @@
                         </div>
                         
                         <div class="row">
-                            <div class="col-md-4 mb-3">
+                            <div class="col-md-4 mb-3 fade-in delay-1">
                                 <div class="achievement-counter">
                                     <span class="counter-number">৫০০+</span>
                                     <h6>শিক্ষার্থী</h6>
                                     <p class="text-muted mb-0">সক্রিয় শিক্ষার্থী</p>
                                 </div>
                             </div>
-                            <div class="col-md-4 mb-3">
+                            <div class="col-md-4 mb-3 fade-in delay-2">
                                 <div class="achievement-counter">
                                     <span class="counter-number">৩০+</span>
                                     <h6>শিক্ষক</h6>
                                     <p class="text-muted mb-0">অভিজ্ঞ শিক্ষকমণ্ডলী</p>
                                 </div>
                             </div>
-                            <div class="col-md-4 mb-3">
+                            <div class="col-md-4 mb-3 fade-in delay-3">
                                 <div class="achievement-counter">
                                     <span class="counter-number">১৫</span>
                                     <h6>বছর</h6>
@@ -414,7 +983,7 @@
                         </div>
                         
                         <div class="mt-4">
-                            <h4 class="text-primary mb-3">আমাদের বৈশিষ্ট্য</h4>
+                            <h4 class="text-primary mb-3"><i class="fas fa-star me-2"></i>আমাদের বৈশিষ্ট্য</h4>
                             <div class="row">
                                 <div class="col-md-6">
                                     <ul>
@@ -437,7 +1006,7 @@
                     </div>
                     
                     <!-- Principal's Message -->
-                    <div class="about-section" id="principal">
+                    <div class="about-section fade-in" id="principal">
                         <span class="section-anchor" id="principal-anchor"></span>
                         <h2 class="page-title">প্রধান শিক্ষকের বাণী</h2>
                         
@@ -464,7 +1033,7 @@
                     </div>
                     
                     <!-- History -->
-                    <div class="about-section" id="history">
+                    <div class="about-section fade-in" id="history">
                         <span class="section-anchor" id="history-anchor"></span>
                         <h2 class="page-title">প্রতিষ্ঠার ইতিহাস</h2>
                         
@@ -507,7 +1076,7 @@
                     </div>
                     
                     <!-- Mission & Vision -->
-                    <div class="about-section" id="mission">
+                    <div class="about-section fade-in" id="mission">
                         <span class="section-anchor" id="mission-anchor"></span>
                         <h2 class="page-title">লক্ষ্য ও উদ্দেশ্য</h2>
                         
@@ -531,7 +1100,7 @@
                         </div>
                         
                         <div class="row">
-                            <div class="col-md-6 mb-4">
+                            <div class="col-md-6 mb-4 fade-in delay-1">
                                 <div class="card h-100">
                                     <div class="card-header bg-primary text-white">
                                         <h5 class="mb-0"><i class="fas fa-star me-2"></i>লক্ষ্যসমূহ</h5>
@@ -550,7 +1119,7 @@
                                 </div>
                             </div>
                             
-                            <div class="col-md-6 mb-4">
+                            <div class="col-md-6 mb-4 fade-in delay-2">
                                 <div class="card h-100">
                                     <div class="card-header bg-success text-white">
                                         <h5 class="mb-0"><i class="fas fa-handshake me-2"></i>উদ্দেশ্যসমূহ</h5>
@@ -572,11 +1141,11 @@
                     </div>
                     
                     <!-- Achievements -->
-                    <div class="about-section" id="achievements">
+                    <div class="about-section fade-in" id="achievements">
                         <h2 class="page-title">আমাদের অর্জনসমূহ</h2>
                         
                         <div class="row">
-                            <div class="col-md-6 mb-4">
+                            <div class="col-md-6 mb-4 fade-in delay-1">
                                 <div class="card h-100">
                                     <div class="card-header bg-info text-white">
                                         <h5 class="mb-0"><i class="fas fa-trophy me-2"></i>একাডেমিক অর্জন</h5>
@@ -594,7 +1163,7 @@
                                 </div>
                             </div>
                             
-                            <div class="col-md-6 mb-4">
+                            <div class="col-md-6 mb-4 fade-in delay-2">
                                 <div class="card h-100">
                                     <div class="card-header bg-warning">
                                         <h5 class="mb-0"><i class="fas fa-users me-2"></i>সামাজিক অবদান</h5>
@@ -614,25 +1183,25 @@
                         </div>
                         
                         <div class="row">
-                            <div class="col-md-3 col-sm-6 mb-3">
+                            <div class="col-md-3 col-sm-6 mb-3 fade-in delay-1">
                                 <div class="achievement-counter">
                                     <span class="counter-number">১৫০+</span>
                                     <h6>হাফেজে কুরআন</h6>
                                 </div>
                             </div>
-                            <div class="col-md-3 col-sm-6 mb-3">
+                            <div class="col-md-3 col-sm-6 mb-3 fade-in delay-2">
                                 <div class="achievement-counter">
                                     <span class="counter-number">১০০%</span>
                                     <h6>পাসের হার</h6>
                                 </div>
                             </div>
-                            <div class="col-md-3 col-sm-6 mb-3">
+                            <div class="col-md-3 col-sm-6 mb-3 fade-in delay-3">
                                 <div class="achievement-counter">
                                     <span class="counter-number">৫০+</span>
                                     <h6>পুরস্কার</h6>
                                 </div>
                             </div>
-                            <div class="col-md-3 col-sm-6 mb-3">
+                            <div class="col-md-3 col-sm-6 mb-3 fade-in">
                                 <div class="achievement-counter">
                                     <span class="counter-number">১০০+</span>
                                     <h6>উচ্চশিক্ষার্থী</h6>
@@ -642,7 +1211,7 @@
                     </div>
                     
                     <!-- Teachers -->
-                    <div class="about-section" id="teachers">
+                    <div class="about-section fade-in" id="teachers">
                         <span class="section-anchor" id="teachers-anchor"></span>
                         <h2 class="page-title">শিক্ষকমণ্ডলী</h2>
                         
@@ -653,7 +1222,7 @@
                         </div>
                         
                         <div class="row g-4">
-                            <div class="col-md-4 col-sm-6">
+                            <div class="col-md-4 col-sm-6 fade-in delay-1">
                                 <div class="teacher-card">
                                     <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80" 
                                          class="teacher-photo" alt="প্রধান শিক্ষক">
@@ -667,7 +1236,7 @@
                                 </div>
                             </div>
                             
-                            <div class="col-md-4 col-sm-6">
+                            <div class="col-md-4 col-sm-6 fade-in delay-2">
                                 <div class="teacher-card">
                                     <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80" 
                                          class="teacher-photo" alt="উপাধ্যক্ষ">
@@ -681,7 +1250,7 @@
                                 </div>
                             </div>
                             
-                            <div class="col-md-4 col-sm-6">
+                            <div class="col-md-4 col-sm-6 fade-in delay-3">
                                 <div class="teacher-card">
                                     <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80" 
                                          class="teacher-photo" alt="সিনিয়র শিক্ষক">
@@ -695,7 +1264,7 @@
                                 </div>
                             </div>
                             
-                            <div class="col-md-4 col-sm-6">
+                            <div class="col-md-4 col-sm-6 fade-in delay-1">
                                 <div class="teacher-card">
                                     <img src="https://images.unsplash.com/photo-1551836026-d5c2c5af78e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80" 
                                          class="teacher-photo" alt="হিফয শিক্ষক">
@@ -709,7 +1278,7 @@
                                 </div>
                             </div>
                             
-                            <div class="col-md-4 col-sm-6">
+                            <div class="col-md-4 col-sm-6 fade-in delay-2">
                                 <div class="teacher-card">
                                     <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80" 
                                          class="teacher-photo" alt="বিজ্ঞান শিক্ষক">
@@ -723,7 +1292,7 @@
                                 </div>
                             </div>
                             
-                            <div class="col-md-4 col-sm-6">
+                            <div class="col-md-4 col-sm-6 fade-in delay-3">
                                 <div class="teacher-card">
                                     <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80" 
                                          class="teacher-photo" alt="কম্পিউটার শিক্ষক">
@@ -738,7 +1307,7 @@
                             </div>
                         </div>
                         
-                        <div class="row mt-4">
+                        <div class="row mt-4 fade-in">
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-header bg-primary text-white">
@@ -790,11 +1359,11 @@
                     </div>
                     
                     <!-- Governing Body -->
-                    <div class="about-section" id="governance">
+                    <div class="about-section fade-in" id="governance">
                         <h2 class="page-title">গভর্নিং বডি ও কমিটি</h2>
                         
                         <div class="row">
-                            <div class="col-md-6 mb-4">
+                            <div class="col-md-6 mb-4 fade-in delay-1">
                                 <div class="card h-100">
                                     <div class="card-header bg-success text-white">
                                         <h5 class="mb-0"><i class="fas fa-users-cog me-2"></i>গভর্নিং বডি</h5>
@@ -841,7 +1410,7 @@
                                 </div>
                             </div>
                             
-                            <div class="col-md-6 mb-4">
+                            <div class="col-md-6 mb-4 fade-in delay-2">
                                 <div class="card h-100">
                                     <div class="card-header bg-info text-white">
                                         <h5 class="mb-0"><i class="fas fa-clipboard-list me-2"></i>কমিটিসমূহ</h5>
@@ -938,7 +1507,7 @@
     </div>
     
     <!-- Back to Top Button -->
-    <button id="backToTop" class="btn btn-primary" style="position: fixed; bottom: 100px; right: 30px; z-index: 1000; display: none;">
+    <button id="backToTop" class="btn btn-primary">
         <i class="fas fa-arrow-up"></i>
     </button>
     
@@ -949,13 +1518,17 @@
         // Current Date and Time
         function updateDateTime() {
             const now = new Date();
-            const options = { 
-                weekday: 'long', 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric' 
-            };
             
+            // Custom Bengali date formatting
+            const weekdays = ['রবিবার', 'সোমবার', 'মঙ্গলবার', 'বুধবার', 'বৃহস্পতিবার', 'শুক্রবার', 'শনিবার'];
+            const months = ['জানুয়ারি', 'ফেব্রুয়ারি', 'মার্চ', 'এপ্রিল', 'মে', 'জুন', 'জুলাই', 'আগস্ট', 'সেপ্টেম্বর', 'অক্টোবর', 'নভেম্বর', 'ডিসেম্বর'];
+            
+            const weekday = weekdays[now.getDay()];
+            const day = now.getDate();
+            const month = months[now.getMonth()];
+            const year = now.getFullYear();
+            
+            // Time formatting
             let hours = now.getHours();
             let minutes = now.getMinutes();
             let seconds = now.getSeconds();
@@ -967,7 +1540,7 @@
             seconds = seconds < 10 ? '0' + seconds : seconds;
             
             const timeString = hours + ':' + minutes + ':' + seconds + ' ' + ampm;
-            const dateString = now.toLocaleDateString('bn-BD', options);
+            const dateString = weekday + ', ' + day + ' ' + month + ' ' + year;
             
             document.getElementById('currentTime').textContent = timeString;
             document.getElementById('currentDate').textContent = dateString;
@@ -985,7 +1558,7 @@
                 let currentSection = '';
                 
                 sections.forEach(section => {
-                    const sectionTop = section.offsetTop - 100;
+                    const sectionTop = section.offsetTop - 150;
                     const sectionHeight = section.clientHeight;
                     if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
                         currentSection = section.id;
@@ -1012,7 +1585,7 @@
                     
                     if (targetElement) {
                         window.scrollTo({
-                            top: targetElement.offsetTop - 80,
+                            top: targetElement.offsetTop - 120,
                             behavior: 'smooth'
                         });
                     }
@@ -1068,6 +1641,39 @@
                     this.style.animationPlayState = 'running';
                 });
             }
+            
+            // Form validation for search
+            const searchForm = document.querySelector('form.d-flex');
+            if (searchForm) {
+                searchForm.addEventListener('submit', function(e) {
+                    const searchInput = this.querySelector('input[type="search"]');
+                    if (searchInput.value.trim() === '') {
+                        e.preventDefault();
+                        searchInput.focus();
+                        searchInput.style.borderColor = 'red';
+                        setTimeout(() => {
+                            searchInput.style.borderColor = '';
+                        }, 2000);
+                    }
+                });
+            }
+            
+            // Fade in animation on scroll
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeInOnScroll = function() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('visible');
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', fadeInOnScroll);
+            fadeInOnScroll(); // Initial check
         });
     </script>
 </body>
