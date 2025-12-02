@@ -198,7 +198,7 @@
             <div class="row align-items-center">
                 <div class="col-md-4">
                     <div class="madrasah-info">
-                        <i class="fas fa-school me-1"></i> মাদ্রাসা কোড: 11004 | EIIN: 107906
+                        <i class="fas fa-school me-1"></i>
                     </div>
                 </div>
                 <div class="col-md-4 text-center datetime-info">
@@ -327,7 +327,7 @@
             <!-- Page Header -->
             <div class="row mb-4">
                 <div class="col-12">
-                    <h2 class="page-title">ফি কাঠামো ২০২৪</h2>
+                    <h2 class="page-title">ফি কাঠামো ২০২৬</h2>
                     <p class="lead">দারুল হিকমাহ মডেল মাদ্রাসার ফি কাঠামো সম্পূর্ণ স্বচ্ছ ও যুক্তিসঙ্গত। শিক্ষার মান বজায় রেখে আমরা মধ্যবিত্ত পরিবারের সাধ্যমত ফি নির্ধারণ করেছি। বিশেষ অফার ও ছাড়ের ব্যবস্থা রয়েছে।</p>
                 </div>
             </div>
@@ -357,44 +357,8 @@
                                     <option value="hifz_res">হিফয বিভাগ (আবাসিক)</option>
                                 </select>
                             </div>
-                            
-                            <div class="col-md-4 mb-3">
-                                <label for="transportOption" class="form-label">পরিবহন সেবা</label>
-                                <select class="form-select" id="transportOption">
-                                    <option value="no">প্রয়োজন নেই</option>
-                                    <option value="mymensingh">ময়মনসিংহ রুট (১,২০০ টাকা)</option>
-                                    <option value="phulpur">ফুলপুর রুট (৮০০ টাকা)</option>
-                                    <option value="valuka">ভালুকা রুট (১,০০০ টাকা)</option>
-                                    <option value="haluaghat">হালুয়াঘাট রুট (১,৫০০ টাকা)</option>
-                                </select>
-                            </div>
-                            
-                            <div class="col-md-4 mb-3">
-                                <label for="discountOption" class="form-label">ছাড়ের অপশন</label>
-                                <select class="form-select" id="discountOption">
-                                    <option value="none">কোন ছাড় নেই</option>
-                                    <option value="sibling">ভাই-বোন ছাড় (২০%)</option>
-                                    <option value="early">শুরুর মাসে ছাড় (৫%)</option>
-                                    <option value="annual">বার্ষিক ফি ছাড় (১০%)</option>
-                                </select>
-                            </div>
                         </div>
-                        
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" type="checkbox" id="lunchOption">
-                                    <label class="form-check-label" for="lunchOption">
-                                        মধ্যাহ্নভোজের ব্যবস্থা (৫০০ টাকা/মাস)
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="computerOption">
-                                    <label class="form-check-label" for="computerOption">
-                                        কম্পিউটার প্রশিক্ষণ (২০০ টাকা/মাস)
-                                    </label>
-                                </div>
-                            </div>
                             <div class="col-md-6 text-end">
                                 <button class="btn btn-primary btn-lg" onclick="calculateFee()">
                                     <i class="fas fa-calculator me-2"></i>ফি হিসেব করুন
@@ -427,92 +391,65 @@
                                     <thead>
                                         <tr>
                                             <th>শ্রেণি</th>
-                                            <th>মাসিক টিউশন ফি</th>
+                                            <th>মাসিক বেতন</th>
                                             <th>পরীক্ষা ফি</th>
-                                            <th>ল্যাব ফি</th>
-                                            <th>লাইব্রেরি ফি</th>
-                                            <th>সহপাঠ্যক্রম</th>
                                             <th>মোট মাসিক</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>প্লে</td>
-                                            <td>৫০০ টাকা</td>
-                                            <td>১০০ টাকা</td>
-                                            <td>-</td>
-                                            <td>৫০ টাকা</td>
-                                            <td>১০০ টাকা</td>
-                                            <td><strong>৭৫০ টাকা</strong></td>
+                                            <td>৭০০ টাকা</td>
+                                            <td>১৫০ টাকা</td>
+                                            <td><strong>৭০০ টাকা</strong></td>
                                         </tr>
                                         <tr>
                                             <td>নার্সারি</td>
-                                            <td>৫৫০ টাকা</td>
-                                            <td>১০০ টাকা</td>
-                                            <td>-</td>
-                                            <td>৫০ টাকা</td>
-                                            <td>১০০ টাকা</td>
-                                            <td><strong>৮০০ টাকা</strong></td>
+                                            <td>৭০০ টাকা</td>
+                                            <td>১৫০ টাকা</td>
+                                            <td><strong>৭০০ টাকা</strong></td>
                                         </tr>
                                         <tr>
                                             <td>প্রথম শ্রেণি</td>
-                                            <td>৬০০ টাকা</td>
-                                            <td>১৫০ টাকা</td>
-                                            <td>১০০ টাকা</td>
-                                            <td>৫০ টাকা</td>
-                                            <td>১৫০ টাকা</td>
-                                            <td><strong>১,০৫০ টাকা</strong></td>
+                                            <td>৮০০ টাকা</td>
+                                            <td>২০০ টাকা</td>
+                                            <td><strong>৮০০ টাকা</strong></td>
                                         </tr>
                                         <tr>
-                                            <td>দ্বিতীয় শ্রেণি</td>
-                                            <td>৬৫০ টাকা</td>
-                                            <td>১৫০ টাকা</td>
-                                            <td>১০০ টাকা</td>
-                                            <td>৫০ টাকা</td>
-                                            <td>১৫০ টাকা</td>
-                                            <td><strong>১,১০০ টাকা</strong></td>
+                                            <td>দ্বিতীয় শ্রেণি</td>
+                                            <td>৮০০ টাকা</td>
+                                            <td>২০০ টাকা</td>
+                                            <td><strong>৮০০ টাকা</strong></td>
                                         </tr>
                                         <tr>
                                             <td>তৃতীয় শ্রেণি</td>
-                                            <td>৭০০ টাকা</td>
+                                            <td>১০০০ টাকা</td>
                                             <td>২০০ টাকা</td>
-                                            <td>১৫০ টাকা</td>
-                                            <td>৫০ টাকা</td>
-                                            <td>১৫০ টাকা</td>
-                                            <td><strong>১,২৫০ টাকা</strong></td>
+                                            <td><strong>১,০০০ টাকা</strong></td>
                                         </tr>
                                         <tr>
                                             <td>চতুর্থ শ্রেণি</td>
-                                            <td>৭৫০ টাকা</td>
+                                            <td>১০০০ টাকা</td>
                                             <td>২০০ টাকা</td>
-                                            <td>১৫০ টাকা</td>
-                                            <td>৫০ টাকা</td>
-                                            <td>১৫০ টাকা</td>
-                                            <td><strong>১,৩০০ টাকা</strong></td>
+                                            <td><strong>১,০০০ টাকা</strong></td>
                                         </tr>
                                         <tr>
                                             <td>পঞ্চম শ্রেণি</td>
-                                            <td>৮০০ টাকা</td>
-                                            <td>২৫০ টাকা</td>
+                                            <td>১০০০ টাকা</td>
                                             <td>২০০ টাকা</td>
-                                            <td>১০০ টাকা</td>
-                                            <td>২০০ টাকা</td>
-                                            <td><strong>১,৫৫০ টাকা</strong></td>
+                                            <td><strong>১,০০০ টাকা</strong></td>
                                         </tr>
                                         <tr>
                                             <td>ষষ্ঠ শ্রেণি</td>
-                                            <td>৯০০ টাকা</td>
-                                            <td>২৫০ টাকা</td>
+                                            <td>১০০০ টাকা</td>
                                             <td>২০০ টাকা</td>
-                                            <td>১০০ টাকা</td>
-                                            <td>২০০ টাকা</td>
-                                            <td><strong>১,৬৫০ টাকা</strong></td>
+                                            <td><strong>১,০০০ টাকা</strong></td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                             <div class="alert alert-info mt-3">
-                                <i class="fas fa-info-circle me-2"></i><strong>দ্রষ্টব্য:</strong> উপরোক্ত ফির সাথে প্রতি মাসে ২০০ টাকা উন্নয়ন ফি এবং ১০০ টাকা আইটি ফি যুক্ত হবে। বছরে একবার ৫০০ টাকা সেশন চার্জ এবং ২০০ টাকা পরিচয়পত্র ফি দিতে হবে।
+                                <i class="fas fa-info-circle me-2"></i><strong>   </strong>
                             </div>
                         </div>
                     </div>
@@ -531,17 +468,13 @@
                                 <div class="col-md-3 mb-4">
                                     <div class="fee-card">
                                         <div class="fee-card-header">
-                                            <h5 class="mb-0">নূরানী বিভাগ</h5>
+                                            <h5 class="mb-0">নূরানী বিভাগ(আবাসিক)</h5>
                                         </div>
                                         <div class="fee-card-body">
-                                            <div class="fee-amount">৮০০ টাকা</div>
+                                            <div class="fee-amount">২০০০ টাকা</div>
                                             <div class="fee-period">প্রতি মাসে</div>
                                             <ul class="fee-features">
-                                                <li>মাসিক টিউশন ফি: ৪০০ টাকা</li>
-                                                <li>পরীক্ষা ফি: ১০০ টাকা</li>
-                                                <li>কিতাব ফি: ২০০ টাকা</li>
-                                                <li>উপকরণ ফি: ১০০ টাকা</li>
-                                                <li>বছরিক সেশন চার্জ: ৫০০ টাকা</li>
+                                                <li>খাবার: ৩,৫০০ টাকা</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -550,17 +483,13 @@
                                 <div class="col-md-3 mb-4">
                                     <div class="fee-card">
                                         <div class="fee-card-header">
-                                            <h5 class="mb-0">নাযেরা বিভাগ</h5>
+                                            <h5 class="mb-0">নাযেরা বিভাগ(আবাসিক)</h5>
                                         </div>
                                         <div class="fee-card-body">
-                                            <div class="fee-amount">১,১০০ টাকা</div>
+                                            <div class="fee-amount">২০০০ টাকা</div>
                                             <div class="fee-period">প্রতি মাসে</div>
                                             <ul class="fee-features">
-                                                <li>মাসিক টিউশন ফি: ৫০০ টাকা</li>
-                                                <li>পরীক্ষা ফি: ১৫০ টাকা</li>
-                                                <li>কিতাব ফি: ৩০০ টাকা</li>
-                                                <li>উপকরণ ফি: ১৫০ টাকা</li>
-                                                <li>বছরিক সেশন চার্জ: ৫০০ টাকা</li>
+                                                <li>খাবার: ৩,৫০০ টাকা</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -568,40 +497,29 @@
                                 
                                 <div class="col-md-3 mb-4">
                                     <div class="fee-card">
-                                        <div class="fee-card-header">
-                                            <h5 class="mb-0">হিফয (অনাবাসিক)</h5>
-                                        </div>
-                                        <div class="fee-card-body">
-                                            <div class="fee-amount">১,৬০০ টাকা</div>
-                                            <div class="fee-period">প্রতি মাসে</div>
-                                            <ul class="fee-features">
-                                                <li>মাসিক টিউশন ফি: ৮০০ টাকা</li>
-                                                <li>পরীক্ষা ফি: ২০০ টাকা</li>
-                                                <li>কিতাব ফি: ৪০০ টাকা</li>
-                                                <li>উপকরণ ফি: ২০০ টাকা</li>
-                                                <li>বছরিক সেশন চার্জ: ৫০০ টাকা</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-3 mb-4">
-                                    <div class="fee-card">
-                                        <div class="discount-badge">বিশেষ ছাড়</div>
                                         <div class="fee-card-header">
                                             <h5 class="mb-0">হিফয (আবাসিক)</h5>
                                         </div>
                                         <div class="fee-card-body">
-                                            <div class="fee-amount">৩,৩০০ টাকা</div>
+                                            <div class="fee-amount">২০০০ টাকা</div>
+                                            <div class="fee-period">বেতন প্রতি মাসে</div>
+                                            <ul class="fee-features">
+                                                <li>খাবার: ৩,৫০০ টাকা</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-3 mb-4">
+                                    <div class="fee-card">
+                                        <div class="discount-badge">বিশেষ ছাড় (গরিবদের জন্য)</div>
+                                        <div class="fee-card-header">
+                                            <h5 class="mb-0">হিফয (আবাসিক)</h5>
+                                        </div>
+                                        <div class="fee-card-body">
+                                            <div class="fee-amount">৫,০০০ টাকা</div>
                                             <div class="fee-period">প্রতি মাসে</div>
                                             <ul class="fee-features">
-                                                <li>মাসিক টিউশন ফি: ২,৫০০ টাকা</li>
-                                                <li>পরীক্ষা ফি: ২০০ টাকা</li>
-                                                <li>কিতাব ফি: ৪০০ টাকা</li>
-                                                <li>উপকরণ ফি: ২০০ টাকা</li>
-                                                <li>আবাসিক ফি: ৫০০ টাকা</li>
-                                                <li>খাবার ও থাকার ব্যবস্থা</li>
-                                                <li>বছরিক সেশন চার্জ: ১,০০০ টাকা</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -609,7 +527,7 @@
                             </div>
                             
                             <div class="alert alert-info mt-3">
-                                <i class="fas fa-info-circle me-2"></i><strong>দ্রষ্টব্য:</strong> আবাসিক হিফয বিভাগের ফিতে থাকা, খাওয়া, পড়াশোনার সকল সুবিধা, স্বাস্থ্যসেবা ও অন্যান্য সুযোগ-সুবিধা অন্তর্ভুক্ত। উন্নয়ন ফি মাসিক ২০০ টাকা যুক্ত হবে।
+                                <i class="fas fa-info-circle me-2"></i><strong>দ্রষ্টব্য:</strong>হিফয বিভাগের ফিতে থাকা, খাওয়া, পড়াশোনার সকল সুবিধা, স্বাস্থ্যসেবা ও অন্যান্য সুযোগ-সুবিধা অন্তর্ভুক্ত।
                             </div>
                         </div>
                     </div>
@@ -636,37 +554,22 @@
                                     <tbody>
                                         <tr>
                                             <td>ভর্তি ফি</td>
-                                            <td>১,০০০ টাকা</td>
+                                            <td>৪,০০০ টাকা</td>
                                             <td>শুধুমাত্র নতুন ভর্তির ক্ষেত্রে</td>
                                         </tr>
                                         <tr>
-                                            <td>প্রবেশপত্র ফি</td>
-                                            <td>৫০০ টাকা</td>
+                                            <td>ডায়েরি বাবদ</td>
+                                            <td> ১৫০ টাকা</td>
                                             <td>প্রতিবছর নবায়নযোগ্য</td>
                                         </tr>
                                         <tr>
                                             <td>আইডি কার্ড ফি</td>
-                                            <td>২০০ টাকা</td>
+                                            <td>১৫০ টাকা</td>
                                             <td>প্রতি শিক্ষাবর্ষে</td>
                                         </tr>
                                         <tr>
-                                            <td>ল্যাব ফি (বছরিক)</td>
-                                            <td>৫০০ টাকা</td>
-                                            <td>৩য় শ্রেণি থেকে</td>
-                                        </tr>
-                                        <tr>
-                                            <td>খেলার সরঞ্জাম ফি</td>
-                                            <td>৩০০ টাকা</td>
-                                            <td>বছরে একবার</td>
-                                        </tr>
-                                        <tr>
-                                            <td>স্কাউট/গার্লস গাইড ফি</td>
-                                            <td>২০০ টাকা</td>
-                                            <td>ঐচ্ছিক</td>
-                                        </tr>
-                                        <tr>
                                             <td>সাংস্কৃতিক কার্যক্রম ফি</td>
-                                            <td>৩০০ টাকা</td>
+                                            <td>২০০ টাকা</td>
                                             <td>বছরে একবার</td>
                                         </tr>
                                     </tbody>
@@ -711,7 +614,7 @@
                                             <i class="fas fa-calendar-check"></i>
                                         </div>
                                         <h6>সময়মতো ফি জমা</h6>
-                                        <p class="mb-0">মাসের প্রথম সপ্তাহে ফি জমা দিলে ৫% ছাড়</p>
+                                        <p class="mb-0">মাসের প্রথম ১০ তারিখের মধ্যে ফি জমা দিতে হবে</p>
                                     </div>
                                 </div>
                                 
@@ -750,7 +653,7 @@
                                         </div>
                                         <h5>নগদ জমা</h5>
                                         <p class="mb-2">সরাসরি মাদ্রাসা অফিসে এসে নগদ ফি জমা দিন। রসিদ সংগ্রহ করে রাখুন।</p>
-                                        <p class="mb-0"><strong>সময়:</strong> রবি-বৃহঃ সকাল ৯টা - বিকাল ৪টা</p>
+                                        <p class="mb-0"><strong>সময়:</strong> শনি-বৃহঃ সকাল ৯টা - রাত ৯টা</p>
                                     </div>
                                 </div>
                                 
@@ -761,7 +664,7 @@
                                         </div>
                                         <h5>ব্যাংক ডিপোজিট</h5>
                                         <p class="mb-2">ইসলামী ব্যাংক বাংলাদেশ লিমিটেড, ফুলপুর শাখা</p>
-                                        <p class="mb-0"><strong>একাউন্ট নম্বর:</strong><br>২০৩০৩৪৫০১১০০০১৩২</p>
+                                        <p class="mb-0"><strong>একাউন্ট নম্বর:</strong><br>(পরবর্তিতে যোগ করা হবে)</p>
                                     </div>
                                 </div>
                                 
@@ -771,8 +674,8 @@
                                             <i class="fas fa-mobile-alt"></i>
                                         </div>
                                         <h5>মোবাইল ব্যাংকিং</h5>
-                                        <p class="mb-2">bKash, Nagad, Rocket - মার্চেন্ট নম্বর</p>
-                                        <p class="mb-0"><strong>মার্চেন্ট:</strong> ০১৯৭০৫১৭৫৬৬<br><strong>নাম:</strong> Darul Hikmah Madrasah</p>
+                                        <p class="mb-2">bKash, Nagad  - নম্বর</p>
+                                        <p class="mb-0"><strong>নাম্বার:</strong> 01728517544<br><strong>নাম:</strong> Darul Hikmah Madrasah</p>
                                     </div>
                                 </div>
                             </div>
@@ -795,68 +698,6 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Fee Comparison -->
-            <div class="row mb-5">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header bg-primary text-white">
-                            <h4 class="mb-0"><i class="fas fa-balance-scale me-2"></i>অন্যান্য প্রতিষ্ঠানের সাথে তুলনা</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table comparison-table">
-                                    <thead>
-                                        <tr>
-                                            <th>বিষয়</th>
-                                            <th>দারুল হিকমাহ মডেল মাদ্রাসা</th>
-                                            <th>অন্যান্য মাদ্রাসা (গড়)</th>
-                                            <th>ইংরেজি মিডিয়াম স্কুল (গড়)</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>মাসিক টিউশন ফি (১ম শ্রেণি)</td>
-                                            <td><strong>৬০০ টাকা</strong></td>
-                                            <td>৮০০ - ১,২০০ টাকা</td>
-                                            <td>৩,০০০ - ৫,০০০ টাকা</td>
-                                        </tr>
-                                        <tr>
-                                            <td>হিফয বিভাগ (আবাসিক)</td>
-                                            <td><strong>৩,৩০০ টাকা</strong></td>
-                                            <td>৪,০০০ - ৬,০০০ টাকা</td>
-                                            <td>প্রযোজ্য নয়</td>
-                                        </tr>
-                                        <tr>
-                                            <td>সুযোগ-সুবিধা</td>
-                                            <td>স্মার্ট ক্লাস, ল্যাব, লাইব্রেরি</td>
-                                            <td>সাধারণ সুবিধা</td>
-                                            <td>আধুনিক সুবিধা</td>
-                                        </tr>
-                                        <tr>
-                                            <td>শিক্ষার্থী-শিক্ষক অনুপাত</td>
-                                            <td><strong>২০:১</strong></td>
-                                            <td>৩০:১</td>
-                                            <td>২৫:१</td>
-                                        </tr>
-                                        <tr>
-                                            <td>ছাড় ও বৃত্তি</td>
-                                            <td>বিস্তৃত ছাড় ব্যবস্থা</td>
-                                            <td>সীমিত ছাড়</td>
-                                            <td>সীমিত ছাড়</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="alert alert-success mt-3">
-                                <i class="fas fa-check-circle me-2"></i>
-                                <strong>লাভজনক বিনিয়োগ:</strong> আমাদের ফি কাঠামো অত্যন্ত যুক্তিসঙ্গত হওয়ায় মধ্যবিত্ত পরিবারের জন্য এটি একটি লাভজনক বিনিয়োগ। আমরা মানসম্মত শিক্ষা প্রদানের পাশাপাশি অভিভাবকদের আর্থিক চাপ কমাতে সহায়তা করি।
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
             <!-- Contact for Fee -->
             <div class="text-center py-5 bg-light rounded">
                 <h4 class="text-primary mb-3">ফি সংক্রান্ত যেকোনো তথ্যের জন্য যোগাযোগ করুন</h4>
@@ -865,7 +706,7 @@
                         <div class="p-3 border rounded">
                             <i class="fas fa-phone-alt fa-2x text-primary mb-3"></i>
                             <h6>ফোন নম্বর</h6>
-                            <p class="mb-0">০১৯৭০-৫১৭৫৬৭ (অ্যাকাউন্টস)</p>
+                            <p class="mb-0">০১৭২৮-৫১৭৫৪৪ (অ্যাকাউন্টস)</p>
                             <p class="mb-0">০১৯৭০-৫১৭৫৬৬ (অফিস)</p>
                         </div>
                     </div>
@@ -873,16 +714,16 @@
                         <div class="p-3 border rounded">
                             <i class="fas fa-envelope fa-2x text-primary mb-3"></i>
                             <h6>ইমেইল ঠিকানা</h6>
-                            <p class="mb-0">accounts@darulhikmahphulpur.edu.bd</p>
-                            <p class="mb-0">finance@darulhikmahphulpur.edu.bd</p>
+                            <p class="mb-0">darulhikmahphulpur2025@gmail.com</p>
+                            <p class="mb-0">darulhikmahphulpur2025@gmail.com</p>
                         </div>
                     </div>
                     <div class="col-md-4 mb-3">
                         <div class="p-3 border rounded">
                             <i class="fas fa-clock fa-2x text-primary mb-3"></i>
                             <h6>ফি জমার সময়</h6>
-                            <p class="mb-0">রবি-বৃহস্পতিবার: সকাল ১০টা - বিকাল ৪টা</p>
-                            <p class="mb-0">শুক্রবার: সকাল ১০টা - দুপুর ১টা</p>
+                            <p class="mb-0">শনি-বৃহস্পতিবার: সকাল ১০টা - রাত ৯টা</p>
+                            <p class="mb-0">শুক্রবার: সন্ধার পর</p>
                         </div>
                     </div>
                 </div>
@@ -905,7 +746,7 @@
             <div class="row mb-4">
                 <div class="col-md-4">
                     <h4>দারুল হিকমাহ মডেল মাদ্রাসা</h4>
-                    <p class="mt-3">আধুনিক শিক্ষা ও ইসলামী মূল্যবোধের সমন্বয়ে গড়ে উঠেছে একটি আদর্শ শিক্ষাপ্রতিষ্ঠান। ২০০৮ সাল থেকে ফুলপুর, ময়মনসিংহে শিক্ষার আলো ছড়িয়ে দিচ্ছি।</p>
+                    <p class="mt-3">আধুনিক শিক্ষা ও ইসলামী মূল্যবোধের সমন্বয়ে গড়ে উঠেছে একটি আদর্শ শিক্ষাপ্রতিষ্ঠান। ২০২৫ সাল থেকে ফুলপুর, ময়মনসিংহে শিক্ষার আলো ছড়িয়ে দিচ্ছি।</p>
                     <div class="social-links mt-4">
                         <a href="#" class="text-white me-3"><i class="fab fa-facebook-f fa-lg"></i></a>
                         <a href="#" class="text-white me-3"><i class="fab fa-youtube fa-lg"></i></a>
@@ -932,13 +773,13 @@
                         <p><i class="fas fa-phone me-2"></i>০১৯৭০-৫১৭৫৬৬ (প্রধান শিক্ষক)</p>
                         <p><i class="fas fa-phone me-2"></i>০১৯৭০-৫১৭৫৬৭ (অফিস সহকারী)</p>
                         <p><i class="fas fa-envelope me-2"></i>darulhikmahphulpur2025@gmail.com</p>
-                        <p><i class="fas fa-clock me-2"></i>অফিস সময়: রবি-বৃহঃ সকাল ৯টা - বিকাল ৪টা</p>
+                        <p><i class="fas fa-clock me-2"></i>অফিস সময়: শনি-বৃহঃ সকাল ৯টা - রাত ৯টা</p>
                     </div>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; ২০২৪ দারুল হিকমাহ মডেল মাদ্রাসা, ফুলপুর, ময়মনসিংহ। সকল অধিকার সংরক্ষিত।</p>
-                <p class="mb-0">ডিজাইন ও ডেভেলপমেন্ট: দারুল হিকমাহ আইটি টিম</p>
+                <p>&copy; © ২০২৪ দারুল হিকমাহ মডেল মাদ্রাসা, ফুলপুর, ময়মনসিংহ। সকল অধিকার সংরক্ষিত।</p>
+                <p class="mb-0">ডিজাইন ও ডেভেলপমেন্ট: আব্দুল্লাহ ফাহিম</p>
             </div>
         </div>
     </footer>
