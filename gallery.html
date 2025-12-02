@@ -11,13 +11,236 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- মেইন স্টাইলশীট -->
-    <link rel="stylesheet" href="style.css">
-    
     <!-- Lightbox CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
     
     <style>
+        /* Root Variables */
+        :root {
+            --primary-color: #1a237e;
+            --primary-light: #534bae;
+            --primary-dark: #000051;
+            --secondary-color: #00bcd4;
+            --secondary-light: #62efff;
+            --secondary-dark: #008ba3;
+            --accent-color: #ff9800;
+            --light-gray: #f5f5f5;
+            --medium-gray: #e0e0e0;
+            --dark-gray: #424242;
+            --text-color: #212121;
+            --white: #ffffff;
+            --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 6px 12px rgba(0, 0, 0, 0.15);
+            --shadow-heavy: 0 10px 20px rgba(0, 0, 0, 0.2);
+            --border-radius-sm: 5px;
+            --border-radius-md: 10px;
+            --border-radius-lg: 15px;
+            --transition-normal: all 0.3s ease;
+        }
+        
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            color: var(--text-color);
+            background-color: var(--light-gray);
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        a:hover {
+            color: var(--primary-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+        }
+        
+        /* Header Top */
+        .header-top {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 0;
+            font-size: 0.9rem;
+        }
+        
+        .madrasah-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .datetime-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .online-admission-btn {
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 8px 15px;
+            border-radius: var(--border-radius-sm);
+            font-weight: 600;
+            transition: var(--transition-normal);
+            display: inline-block;
+        }
+        
+        .online-admission-btn:hover {
+            background-color: #f57c00;
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+        
+        /* Main Header */
+        .main-header {
+            background-color: var(--white);
+            padding: 20px 0;
+            box-shadow: var(--shadow-light);
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+            border: 2px solid var(--primary-color);
+        }
+        
+        .logo-text h1 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .logo-text p {
+            font-size: 0.9rem;
+            color: var(--dark-gray);
+            margin-bottom: 0;
+        }
+        
+        /* Notice Section */
+        .notice-section {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 10px 0;
+        }
+        
+        .notice-label {
+            background-color: var(--primary-color);
+            padding: 8px 15px;
+            border-radius: var(--border-radius-sm);
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .notice-marquee {
+            overflow: hidden;
+        }
+        
+        .notice-content {
+            display: flex;
+            align-items: center;
+            animation: marquee 30s linear infinite;
+            white-space: nowrap;
+        }
+        
+        .notice-item {
+            margin: 0 15px;
+        }
+        
+        .notice-item a {
+            color: var(--white);
+        }
+        
+        .notice-item a:hover {
+            color: var(--light-gray);
+            text-decoration: underline;
+        }
+        
+        .notice-separator {
+            margin: 0 10px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        /* Navigation */
+        .main-nav {
+            background-color: var(--primary-dark);
+            padding: 0;
+        }
+        
+        .navbar-nav .nav-link {
+            color: var(--white) !important;
+            padding: 15px 20px !important;
+            transition: var(--transition-normal);
+        }
+        
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            background-color: var(--primary-color);
+        }
+        
+        .dropdown-menu {
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: var(--border-radius-md);
+        }
+        
+        .dropdown-item {
+            color: var(--white);
+            padding: 10px 15px;
+            transition: var(--transition-normal);
+        }
+        
+        .dropdown-item:hover {
+            background-color: var(--primary-light);
+            color: var(--white);
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 40px 0;
+            min-height: 70vh;
+        }
+        
+        .page-title {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .page-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
         /* Gallery page specific styles */
         .gallery-container {
             position: relative;
@@ -53,6 +276,7 @@
             transition: var(--transition-normal);
             position: relative;
             height: 300px;
+            background-color: var(--white);
         }
         
         .gallery-item:hover {
@@ -161,6 +385,7 @@
             transition: var(--transition-normal);
             height: 100%;
             margin-bottom: 30px;
+            background-color: var(--white);
         }
         
         .album-card:hover {
@@ -249,29 +474,6 @@
             transform: translateY(-3px);
         }
         
-        /* Masonry layout */
-        .masonry-grid {
-            column-count: 3;
-            column-gap: 20px;
-        }
-        
-        .masonry-item {
-            break-inside: avoid;
-            margin-bottom: 20px;
-        }
-        
-        @media (max-width: 992px) {
-            .masonry-grid {
-                column-count: 2;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .masonry-grid {
-                column-count: 1;
-            }
-        }
-        
         /* Slideshow styles */
         .slideshow-container {
             position: relative;
@@ -334,6 +536,214 @@
         .slideshow-btn:hover {
             background: rgba(255, 255, 255, 0.5);
         }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 40px 0 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-widget {
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            border: 2px solid var(--white);
+        }
+        
+        .footer-logo-text h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .footer-logo-text p {
+            font-size: 0.9rem;
+            color: var(--medium-gray);
+            margin-bottom: 0;
+        }
+        
+        .footer-about {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            color: var(--medium-gray);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            color: var(--white);
+            transition: var(--transition-normal);
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        .footer-title {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--medium-gray);
+            transition: var(--transition-normal);
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+            padding-left: 5px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            color: var(--medium-gray);
+        }
+        
+        .contact-info i {
+            margin-top: 5px;
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .map-btn {
+            margin-top: 20px;
+        }
+        
+        .footer-divider {
+            border-color: rgba(255, 255, 255, 0.1);
+            margin: 30px 0;
+        }
+        
+        .copyright, .developer {
+            font-size: 0.9rem;
+            color: var(--medium-gray);
+        }
+        
+        .developer a {
+            color: var(--secondary-color);
+        }
+        
+        .developer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-top .col-md-4 {
+                text-align: center;
+                margin-bottom: 10px;
+            }
+            
+            .datetime-info {
+                justify-content: center;
+                margin: 10px 0;
+            }
+            
+            .logo-section {
+                justify-content: center;
+                margin-bottom: 15px;
+            }
+            
+            .main-header .col-md-9 {
+                text-align: center;
+            }
+            
+            .notice-label {
+                margin-bottom: 10px;
+            }
+            
+            .slideshow-container {
+                height: 300px;
+            }
+            
+            .filter-btn {
+                padding: 6px 15px;
+                font-size: 0.9rem;
+                margin: 3px;
+            }
+            
+            .gallery-item {
+                height: auto;
+            }
+            
+            .footer .col-lg-4 {
+                margin-bottom: 30px;
+            }
+            
+            .copyright, .developer {
+                text-align: center !important;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo-text h1 {
+                font-size: 1rem;
+            }
+            
+            .page-title {
+                font-size: 1.5rem;
+            }
+            
+            .slideshow-container {
+                height: 250px;
+            }
+            
+            .slideshow-caption h4 {
+                font-size: 1rem;
+            }
+            
+            .slideshow-caption p {
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -394,6 +804,12 @@
                 <div class="col-md-10 col-lg-11">
                     <div class="notice-marquee">
                         <div class="notice-content">
+                            <span class="notice-item"><a href="#"><i class="fas fa-camera me-1"></i>বার্ষিক সাংস্কৃতিক অনুষ্ঠানের ছবি আপলোড করা হয়েছে</a></span>
+                            <span class="notice-separator">||</span>
+                            <span class="notice-item"><a href="#"><i class="fas fa-video me-1"></i>হিফয বিভাগের সনদ বিতরণী অনুষ্ঠানের ভিডিও</a></span>
+                            <span class="notice-separator">||</span>
+                            <span class="notice-item"><a href="#"><i class="fas fa-images me-1"></i>নতুন ল্যাব ও সুবিধার ছবি সংযোজন</a></span>
+                            <span class="notice-separator">||</span>
                             <span class="notice-item"><a href="#"><i class="fas fa-camera me-1"></i>বার্ষিক সাংস্কৃতিক অনুষ্ঠানের ছবি আপলোড করা হয়েছে</a></span>
                             <span class="notice-separator">||</span>
                             <span class="notice-item"><a href="#"><i class="fas fa-video me-1"></i>হিফয বিভাগের সনদ বিতরণী অনুষ্ঠানের ভিডিও</a></span>
@@ -696,4 +1112,358 @@
                     <div class="gallery-category">খেলাধুলা</div>
                     <a href="https://images.unsplash.com/photo-1577223625818-75bc1f2ac0e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" 
                        data-lightbox="gallery" data-title="ইন্টার-ক্লাস ফুটবল টুর্নামেন্ট">
-                        <img src="https://images.unsplash.com/photo-1577223625818-75bc1f2ac0e5?ixlib=rb-4.0.3&auto=
+                        <img src="https://images.unsplash.com/photo-1577223625818-75bc1f2ac0e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80" 
+                             class="gallery-img lightbox-image" alt="ফুটবল ম্যাচ">
+                    </a>
+                    <div class="gallery-caption">
+                        <h5>ইন্টার-ক্লাস ফুটবল টুর্নামেন্ট</h5>
+                        <p>ইন্টার-ক্লাস ফুটবল টুর্নামেন্টের একটি ম্যাচ। শিক্ষার্থীরা উৎসাহের সাথে খেলছে।</p>
+                    </div>
+                </div>
+                
+                <!-- Cultural Images -->
+                <div class="col-lg-4 col-md-6 mb-4 gallery-item" data-category="cultural">
+                    <div class="gallery-category">সাংস্কৃতিক</div>
+                    <a href="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" 
+                       data-lightbox="gallery" data-title="সাংস্কৃতিক সন্ধ্যা">
+                        <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80" 
+                             class="gallery-img lightbox-image" alt="সাংস্কৃতিক অনুষ্ঠান">
+                    </a>
+                    <div class="gallery-caption">
+                        <h5>সাংস্কৃতিক সন্ধ্যা</h5>
+                        <p>শিক্ষার্থীরা নৃত্য পরিবেশনা করছে। আমাদের মাদ্রাসায় নিয়মিত সাংস্কৃতিক অনুষ্ঠানের আয়োজন করা হয়।</p>
+                    </div>
+                </div>
+                
+                <!-- Hifz Images -->
+                <div class="col-lg-4 col-md-6 mb-4 gallery-item" data-category="hifz">
+                    <div class="gallery-category">হিফয</div>
+                    <a href="https://images.unsplash.com/photo-1589481733715-af5f2d8b4e7c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" 
+                       data-lightbox="gallery" data-title="হিফয বিভাগের সনদ বিতরণ">
+                        <img src="https://images.unsplash.com/photo-1589481733715-af5f2d8b4e7c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80" 
+                             class="gallery-img lightbox-image" alt="হিফয সনদ বিতরণ">
+                    </a>
+                    <div class="gallery-caption">
+                        <h5>হিফয বিভাগের সনদ বিতরণ</h5>
+                        <p>হিফয বিভাগের সফল শিক্ষার্থীদের সনদ বিতরণী অনুষ্ঠান। পুরো কুরআন মুখস্থ করার জন্য তাদের সম্মাননা প্রদান করা হচ্ছে।</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4 gallery-item" data-category="hifz">
+                    <div class="gallery-category">হিফয</div>
+                    <a href="https://images.unsplash.com/photo-1562774012-9e690f5cc0e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" 
+                       data-lightbox="gallery" data-title="হিফয ক্লাস">
+                        <img src="https://images.unsplash.com/photo-1562774012-9e690f5cc0e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80" 
+                             class="gallery-img lightbox-image" alt="হিফয ক্লাস">
+                    </a>
+                    <div class="gallery-caption">
+                        <h5>হিফয ক্লাস</h5>
+                        <p>হিফয ক্লাসে শিক্ষার্থীরা কুরআন তিলাওয়াত করছে। আমাদের হিফয বিভাগে দক্ষ শিক্ষকমণ্ডলী পাঠদান করেন।</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4 gallery-item" data-category="facilities">
+                    <div class="gallery-category">সুবিধা</div>
+                    <a href="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" 
+                       data-lightbox="gallery" data-title="আধুনিক সায়েন্স ল্যাব">
+                        <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80" 
+                             class="gallery-img lightbox-image" alt="সায়েন্স ল্যাব">
+                    </a>
+                    <div class="gallery-caption">
+                        <h5>আধুনিক সায়েন্স ল্যাব</h5>
+                        <p>আধুনিক সরঞ্জাম সমৃদ্ধ বিজ্ঞান ল্যাবরেটরি। শিক্ষার্থীরা ব্যবহারিকভাবে বিজ্ঞান শিখছে।</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4 gallery-item" data-category="facilities">
+                    <div class="gallery-category">সুবিধা</div>
+                    <a href="https://images.unsplash.com/photo-1592417817098-8fd3d9eb14a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" 
+                       data-lightbox="gallery" data-title="মসজিদ ও নামাজের স্থান">
+                        <img src="https://images.unsplash.com/photo-1592417817098-8fd3d9eb14a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80" 
+                             class="gallery-img lightbox-image" alt="মসজিদ">
+                    </a>
+                    <div class="gallery-caption">
+                        <h5>মসজিদ ও নামাজের স্থান</h5>
+                        <p>মাদ্রাসার অভ্যন্তরে সুসজ্জিত মসজিদ। শিক্ষার্থী ও শিক্ষকরা পাঁচ ওয়াক্ত নামাজ আদায় করেন।</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4 gallery-item" data-category="facilities">
+                    <div class="gallery-category">সুবিধা</div>
+                    <a href="https://images.unsplash.com/photo-1554672408-730436b60dde?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" 
+                       data-lightbox="gallery" data-title="শিক্ষার্থীদের হোস্টেল">
+                        <img src="https://images.unsplash.com/photo-1554672408-730436b60dde?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400&q=80" 
+                             class="gallery-img lightbox-image" alt="হোস্টেল">
+                    </a>
+                    <div class="gallery-caption">
+                        <h5>শিক্ষার্থীদের হোস্টেল</h5>
+                        <p>দূরবর্তী এলাকার শিক্ষার্থীদের জন্য সুবিধাজনক হোস্টেল। পর্যাপ্ত আলো-বাতাস ও সুবিধা রয়েছে।</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Video Gallery -->
+            <div class="row mb-5">
+                <div class="col-12">
+                    <h3 class="page-title mb-4">ভিডিও গ্যালারি</h3>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="gallery-item">
+                        <div class="gallery-category">ভিডিও</div>
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/XJp1rO5hRds/maxresdefault.jpg" alt="মাদ্রাসা ভ্রমন ভিডিও">
+                            <div class="video-play-btn" data-video-id="XJp1rO5hRds">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-caption">
+                            <h5>দারুল হিকমাহ মডেল মাদ্রাসা ভ্রমন ভিডিও</h5>
+                            <p>আমাদের মাদ্রাসার সম্পূর্ণ ক্যাম্পাসের ভ্রমন ভিডিও। দেখুন সুবিধা ও পরিবেশ।</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="gallery-item">
+                        <div class="gallery-category">ভিডিও</div>
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/7G0LQjQKPwc/maxresdefault.jpg" alt="বার্ষিক পুরস্কার বিতরণী">
+                            <div class="video-play-btn" data-video-id="7G0LQjQKPwc">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-caption">
+                            <h5>বার্ষিক পুরস্কার বিতরণী অনুষ্ঠান ২০২৩</h5>
+                            <p>২০২৩ শিক্ষাবর্ষের বার্ষিক পুরস্কার বিতরণী অনুষ্ঠানের সম্পূর্ণ ভিডিও।</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="gallery-item">
+                        <div class="gallery-category">ভিডিও</div>
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/EW0h7bwk3-o/maxresdefault.jpg" alt="সাংস্কৃতিক অনুষ্ঠান">
+                            <div class="video-play-btn" data-video-id="EW0h7bwk3-o">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-caption">
+                            <h5>বার্ষিক সাংস্কৃতিক অনুষ্ঠান</h5>
+                            <p>শিক্ষার্থীদের অংশগ্রহণে অনুষ্ঠিত সাংস্কৃতিক অনুষ্ঠানের হাইলাইটস।</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Upload Section -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="upload-section text-center">
+                        <h3 class="page-title mb-3">আপনার ছবি আপলোড করুন</h3>
+                        <p class="mb-4">আপনার কাছে যদি আমাদের মাদ্রাসার কোন স্মরণীয় মুহূর্তের ছবি থাকে, তাহলে সেটি আমাদের সাথে শেয়ার করুন। আমরা আপনার ছবি আমাদের গ্যালারিতে যোগ করব।</p>
+                        <button class="upload-btn">
+                            <i class="fas fa-cloud-upload-alt me-2"></i>ছবি আপলোড করুন
+                        </button>
+                        <p class="mt-3 small text-muted">ছবি আপলোডের জন্য আপনাকে লগইন করতে হতে পারে</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-widget">
+                        <div class="footer-logo">
+                            <img src="https://via.placeholder.com/50x50/1a237e/ffffff?text=DH" alt="লোগো">
+                            <div class="footer-logo-text">
+                                <h4>দারুল হিকমাহ মডেল মাদ্রাসা</h4>
+                                <p>ফুলপুর, ময়মনসিংহ</p>
+                            </div>
+                        </div>
+                        <p class="footer-about">আধুনিক শিক্ষা ও ইসলামী মূল্যবোধের সমন্বয়ে গড়ে উঠেছে একটি আদর্শ শিক্ষাপ্রতিষ্ঠান। ১৯৯৫ সাল থেকে অত্যন্ত সফলতার সাথে শিক্ষাদান করে আসছে।</p>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-widget">
+                        <h5 class="footer-title">গুরুত্বপূর্ণ লিঙ্ক</h5>
+                        <ul class="footer-links">
+                            <li><a href="index.html"><i class="fas fa-chevron-right me-2"></i>হোম</a></li>
+                            <li><a href="about.html"><i class="fas fa-chevron-right me-2"></i>পরিচিতি</a></li>
+                            <li><a href="admission.html"><i class="fas fa-chevron-right me-2"></i>ভর্তি তথ্য</a></li>
+                            <li><a href="fee.html"><i class="fas fa-chevron-right me-2"></i>ফি কাঠামো</a></li>
+                            <li><a href="gallery.html"><i class="fas fa-chevron-right me-2"></i>গ্যালারি</a></li>
+                            <li><a href="contact.html"><i class="fas fa-chevron-right me-2"></i>যোগাযোগ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-widget">
+                        <h5 class="footer-title">যোগাযোগ তথ্য</h5>
+                        <div class="contact-info">
+                            <p><i class="fas fa-map-marker-alt me-2"></i>ইসলামী ব্যাংকের বিপরীত পার্শ্বে, ফুলপুর, ময়মনসিংহ</p>
+                            <p><i class="fas fa-phone me-2"></i>০১৭১২-৩৪৫৬৭৮, ০১৯১২-৩৪৫৬৭৯</p>
+                            <p><i class="fas fa-envelope me-2"></i>info@darulhikmah.edu.bd</p>
+                            <p><i class="fas fa-globe me-2"></i>www.darulhikmah.edu.bd</p>
+                        </div>
+                        <div class="map-btn">
+                            <a href="contact.html#map" class="btn btn-outline-light btn-sm">
+                                <i class="fas fa-map-marked-alt me-2"></i>লোকেশন দেখুন
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="copyright">&copy; ২০২৪ দারুল হিকমাহ মডেল মাদ্রাসা, ফুলপুর, ময়মনসিংহ। সর্বস্বত্ব সংরক্ষিত।</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <p class="developer">ডিজাইন ও ডেভেলপমেন্ট: <a href="#">দারুল হিকমাহ আইটি টিম</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Video Modal -->
+    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="videoModalLabel">ভিডিও</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center p-0">
+                    <div id="videoPlayer" style="width: 100%; height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Lightbox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    
+    <script>
+        // Set up Lightbox
+        lightbox.option({
+            'resizeDuration': 200,
+            'wrapAround': true,
+            'albumLabel': 'ছবি %1 এর %2'
+        });
+        
+        // Gallery Filtering
+        $(document).ready(function() {
+            $('.filter-btn').on('click', function() {
+                $('.filter-btn').removeClass('active');
+                $(this).addClass('active');
+                
+                var filter = $(this).data('filter');
+                
+                if (filter === 'all') {
+                    $('.gallery-item').fadeIn(500);
+                } else {
+                    $('.gallery-item').each(function() {
+                        if ($(this).data('category') === filter) {
+                            $(this).fadeIn(500);
+                        } else {
+                            $(this).fadeOut(300);
+                        }
+                    });
+                }
+            });
+            
+            // Video Modal
+            $('.video-play-btn').on('click', function() {
+                var videoId = $(this).data('video-id');
+                var videoUrl = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
+                
+                $('#videoPlayer').html('<iframe width="100%" height="400" src="' + videoUrl + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
+                
+                var videoModal = new bootstrap.Modal(document.getElementById('videoModal'));
+                videoModal.show();
+            });
+            
+            // Close video modal on hide
+            $('#videoModal').on('hidden.bs.modal', function () {
+                $('#videoPlayer').html('');
+            });
+            
+            // Slideshow functionality
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.slideshow-img');
+            const totalSlides = slides.length;
+            
+            function showSlide(index) {
+                // Remove active class from all slides
+                slides.forEach(slide => {
+                    slide.classList.remove('active');
+                });
+                
+                // Add active class to current slide
+                if (index >= totalSlides) currentSlide = 0;
+                if (index < 0) currentSlide = totalSlides - 1;
+                
+                slides[currentSlide].classList.add('active');
+            }
+            
+            // Next slide
+            document.getElementById('nextBtn').addEventListener('click', function() {
+                currentSlide++;
+                showSlide(currentSlide);
+            });
+            
+            // Previous slide
+            document.getElementById('prevBtn').addEventListener('click', function() {
+                currentSlide--;
+                showSlide(currentSlide);
+            });
+            
+            // Auto slide change every 5 seconds
+            setInterval(function() {
+                currentSlide++;
+                showSlide(currentSlide);
+            }, 5000);
+            
+            // Update date and time
+            function updateDateTime() {
+                const now = new Date();
+                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                const dateStr = now.toLocaleDateString('bn-BD', options);
+                const timeStr = now.toLocaleTimeString('bn-BD');
+                
+                document.getElementById('currentDate').textContent = dateStr;
+                document.getElementById('currentTime').textContent = timeStr;
+            }
+            
+            // Update time every second
+            setInterval(updateDateTime, 1000);
+            updateDateTime(); // Initial call
+            
+            // Upload button click event
+            $('.upload-btn').on('click', function() {
+                alert('ছবি আপলোডের জন্য আপনাকে লগইন করতে হবে। লগইন পৃষ্ঠায় রিডাইরেক্ট করা হচ্ছে...');
+                // In a real application, you would redirect to login page
+                // window.location.href = 'login.html';
+            });
+        });
+    </script>
+</body>
+</html>
